@@ -1,0 +1,54 @@
+env_info:
+  service_ip: 192.168.180.129
+  service_port: 9600
+  db_ip: 192.168.179.28
+  db_port: 3306
+  db_user: aicall
+  db_pwd:  Ytxcc123^!    #  yanshiopenserpass92
+  aibot_db_name: aibot
+  aicall_db_name: aimatrix
+  app_id: 20150314000000110000000000000010
+
+login_info:
+  url_path: v1/aicall-web/auth/login
+  corp_id: HtfBzAUs+uwOrsjZxONZBA==
+  user_name: 9h3ks5vW9tAvd2P5+FZSzQ==
+  pwd: Gm3MSoNxV6MBk8pnWyT9zA==
+  app_id: 20150314000000110000000000000010
+ 
+bot_info:   # 每次测试前需确认系统中存在如下信息的机器人
+  bot_name: 接口专用
+  bot_id: 119
+
+flow_info:
+  main_flow: "主流程"
+  branch_flow: "知识流程"
+ 
+create_task:
+  url_path: /v1/aicall/task/commit
+  task_name: 接口测试_创建任务
+  task_id: 18290363607593092210
+  max_concurrent: 10
+  min_concurrent: 1
+
+import_number:
+  url_path: /v1/aicall-web/crm-task/detail/save-import-crm
+  phone_file: E:/pythtonProject/interfaceTest/testData/phone.csv
+
+control_task:
+  url_path: /v1/aicall/task/control
+  control_par: control
+  app_par: appid
+  task_par: taskid
+
+task_detail:
+  url_path: /v1/aicall-web/crm-task/detail
+
+add_custom:
+  url_path: /v1/aicall-web/crm/save-crm
+  custom_name: 李斯
+  sex: 0
+  phone: 13312345678
+
+del_custom:
+  url_path: /v1/aicall-web/crm/remove-crm

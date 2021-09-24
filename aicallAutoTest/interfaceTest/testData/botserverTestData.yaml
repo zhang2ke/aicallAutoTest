@@ -1,0 +1,92 @@
+env_info:
+  service_ip: 192.168.180.122
+  service_port: 9690
+  db_ip: 192.168.179.28
+  db_port: 3306
+  db_user: aicall
+  db_pwd:  Ytxcc123^!    #  yanshiopenserpass92
+  aibot_db_name: aibot
+  aicall_db_name: aimatrix
+  app_id: 20150314000000110000000000000010
+
+login_info:
+  url_path: /v1/aicall-web/auth/login
+  corp_id: HtfBzAUs+uwOrsjZxONZBA==
+  user_name: 9h3ks5vW9tAvd2P5+FZSzQ==
+  pwd: Gm3MSoNxV6MBk8pnWyT9zA==
+
+bot_info:
+  bot_name: 接口自动化测试专用_勿删
+  bot_type: 0
+  flow_name: test_flow
+
+add_bot:
+  url_path: /v1/aicall-web/bot/save
+  name: 接口测试_新建机器人
+  image: img/system/9.png
+  bot_type: 0
+  nlp: RL-NLP
+  tts: 1
+  
+add_flow:
+  url_path: /v1/aicall-web/bot/flow/save-flow
+  flow_name: 接口测试_新增话术流程
+
+del_flow:
+  url_path: /v1/aicall-web/bot/flow/remove  
+
+add_entity:
+  url_path: /v1/aicall-web/entity/save
+  entity_name: user.city
+  entityAlias: 城市
+  regxList: 北京|上海|广州|三亚
+
+del_entity:
+  url_path: /v1/aicall-web/entity/remove
+
+add_intent:
+  url_path: "/v1/aicall-web/intention/save"
+  intent_name: 订票
+  sot_name1: "user.city_a79shrwf"
+  similar1: 出发地
+  slotAlias1: 出发城市
+  sot_name2: "user.city_k96pt4x7"
+  similar2: 目的地
+  slotAlias2: 达到城市
+  regxList: 订.*票
+
+del_intent:
+  url_path: "/v1/aicall-web/intention/delete"
+ 
+add_tag:
+  url_path: /v1/aicall-web/bot/tag/save
+  tag_name: 轨迹名01
+
+del_tag:
+  url_path: /v1/aicall-web/bot/tag/delete
+
+blue_dot:
+  url_path: /v1/aicall-web/intention/saveIntentionFlow
+
+flow_data:
+  url_path:  /v1/aicall-web/bot/flow/edit
+  file_name: flowData.txt
+
+bot_on_line:
+  url_path: /v1/aicall-web/bot/online
+
+bot_off_line:
+  url_path: /v1/aicall-web/bot/offline
+
+task_info:
+  url_path: /v1/aicall-web/crm-task/save
+  task_name: 呼叫任务
+  max_concurrent: 10
+  min_concurrent: 1
+  
+import_number:
+  url_path: /v1/aicall-web/crm-task/detail/save-import-crm
+  phone_file: E:/pythtonProject/interfaceTest/testData/phone.csv
+
+stop_task:
+  url_path: /v1/aicall-web/crm-task/stop

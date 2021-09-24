@@ -1,0 +1,3500 @@
+vpn Zhangke1013
+邮箱密码： Aaa123!@#
+centos修改mysql密码步骤：
+1.编辑my.ini文件，将skip-grant-tables放开，重启mysql服务；
+2.使用命令service mysql restart重启；
+3.再次登录mysql，此时是免密登录，登录后执行命令update user set authentication_string=password('yun123') where user='root'; flush privileges;
+4.再次编辑my.ini文件，将skip-grant-tables注释掉，重启mysql服务；
+5.使用root账户新密码即可登录；
+
+无法远程连接服务器，需使用以下命令开放权限：
+grant all privileges on *.* to openser@'*.*' identified by "yanshiopenserpass92";
+grant all privileges on *.* to aicall@'*.*' identified by "Ytxcc123^!";
+
+GRANT CREATE,ALTER,DROP,SELECT,INSERT,UPDATE,DELETE ON supper_test2.* TO support@'%';
+grant select,insert,update,delete on rl_sqcw_aimatrix.* to openser@"%" identified by "yanshiopenserpass92";
+
+GRANT ALL PRIVILEGES ON `rl_sqcw_aimatrix`.* TO 'openser'@'%';
+GRANT ALL PRIVILEGES ON `rl_sqcw_aiconfig`.* TO 'openser'@'%';
+
+
+有用的url:
+------------------------------------------------------------
+激活Navicat：http://www.downcc.com/soft/322714.html
+
+python第三方库：https://pypi.org/simple/pycrypto/
+
+周报站点:
+http://wiki.yuntongxun.com/pages/viewpage.action?pageId=91062451
+
+eyebeam账号信息：
+-------------------------------
+显示名/用户名/鉴权用户名:15311370020
+口令：123456
+域名：192.168.180.122:7600
+
+生成公钥秘钥的方法：
+---------------------------------
+zhangke 
+zhangke!@#$
+su - zhangke
+ssh-keygen  -t rsa -C 'zk20200205'  
+cd .ssh
+ll
+id_rsa为私钥文件
+id_rsa.pub公钥文件
+
+web登录默认用户名密码
+--------------------------------
+rl123456
+15652617754
+123abc
+
+测试or生产环境
+------------------------------------------------------------
+1、4.0登录网址：http://aicall.yuntongxun.com
+   3.0登录网址：http://120.27.241.122:18060 or http://121.43.37.21:18060/#/RoutView/index
+
+   企业ID：rl123456
+   账号：13971437860
+   密码：ytxzhangke
+2、测试环境：http://192.168.180.210:8060
+   企业ID：12345678
+   账号密码与生产环境一致
+3、4.0使用手册：http://doc.yuntongxun.com/p/5bd49580771dd3d800af9cd9
+
+
+192.168.180.210  
+Docker内端口和账号： 
+port：5522    用户 / 密码 :  yun / yun!@#$  或者 root rootpass  
+宿主机端口和账号：
+port：5533 用户/密码：root rootpass
+
+http://118.89.218.99:8888/versions/download/
+
+http://wiki.yuntongxun.com 
+
+http://redmine.yuntongxun.com 
+
+http://git.yuntongxun.com 
+
+
+
+(1)意图相似问；
+模型匹配，规则匹配 
+模型匹配中的严格匹配
+(2)意图填槽；
+(3)实体；
+(4)等待录音 附近中的下拉选项;
+(5)话术中添加变量从哪里读取;
+
+(6)
+
+<function decorator_factory.<locals>.simple_decorator at 0x00000264EFFD3C18>
+<function decorator_factory.<locals>.simple_decorator.<locals>.wrapper at 0x00000264EFFD3D38>
+Start
+Hello World0
+End
+None
+
+NAVB-MKJP-KB4H-RJAC
+
+bug1:信息收集显示界面和编辑界面风格不一致
+
+
+生成
+
+测试服务器：192.168.180.129  yun/ytxyun123
+
+
+Linux命令：
+----------------------------------------------------------
+查看CPU核数：grep 'core id' /proc/cpuinfo |wc -l
+防火墙状态查看：systemctl status firewalld
+selinux作为内核型的加强性防火墙
+
+#xx.xx.xx.xx为ntp服务器ip,每日凌晨1点同步时间。
+vi /etc/crontab 增加如下语句
+机器对时：0 1 * * * root /usr/sbin/ntpdate XX.XX.XX.XX;/usr/sbin/hwclock –w  
+
+查看是否安装mysql: rpm -qa|grep -i mysql
+卸载MySQL：yum remove `rpm -qa|grep -i  ‘mysql|mari’` -y
+
+
+批量重命名文件：rename .repo .repo.bak ./*
+
+搭建测试环境问题：
+--------------------------------------------------------------------------------------------------------------------
+ 1、vi配置项前需说明操作用户；(很多命令使用yun账户直接执行后提示需使用root账号);
+ 2、chown -r mysql:mysql mysql  这个命令的参数应该是R,不是小写;
+ 4、cd /mysql找不到目录;
+ 5、每一个步骤后应该建议说明操作后的结果；
+ 6、是否有必要说明每一个安装的组件或模块有什么用处？
+ 7、安装mysql完成后重置密码步骤中，使用root用户登录时候不需要密码(不需要-p参数)； 
+ 8、重置密码命令应该是：update mysql.user set authentication_string=password('yun123') where user='root';flush privileges;
+ 9、cmserver模块配置cmserver.ini，LicenseKey从哪获取？建议说明详细方式；
+10、cmserver配置OutSS，SIP线路IP:端口从哪获取？建议说明；
+11、安装MQ模块，创建共享目录步骤为重复操作；
+12、activemq 运行前需安装jdk;
+13、导入初始数据,输入mysql -uroot -p < create_db.sql(mysql -uopenser -p aicall < aicall-modu.sql)后面还有一部输入密码，具体密码需要写出；
+14、使用nohup ./nlp &命令 后台启动nlp时候出现ignoring input and appending output to ‘nohup.out’，使用nohup ./nlp >/dev/null 2>&1 &运行成功；
+15、部署Web模块，配置mysql.properties需要说明配置数据库的访问用户及密码
+16、解压aicall-web_91001后的tomcat版本是8.0.36，对配置文件server.xml的更新建议描述详细一些，如哪些内容需要新增，哪些需要修改等；
+17、配置vi /app/aicall-web_91001/dist/static/config.js 需要知道asr/tts服务器IP
+18、部分配置文件中有@LocalIp字符串，但是配置文档里面没有对应的修改说明；如 /app/aicall-manager_93001/bin/WEB-INF/classes/conf/system.properties
+19、关于数据库的配置文件中，没有说明修改mysql数据库的用户名和密码；
+20、安装manager模块，启动./start_web.sh提示没有目录(./start_web.sh: 第 6 行:cd: /app/aicall-manager_93001/apache-tomcat-8.0.36/work: 没有那个文件或目录
+./start_web.sh: 第 8 行:cd: /app/aicall-manager_93001/apache-tomcat-8.0.36/bin: 没有那个文件或目录
+./start_web.sh:行9: ./startup.sh: 没有那个文件或目录)
+21、安装nlp模块（ivr01），./aicallnlp.sh stop && ./aicallnlp.sh start启动服务后，使用命令netstat -nlp|egrep '9520|9620'监测不到运行的进程
+22、守护进程的作用是什么？
+23、配置监控的作用？
+
+
+
+待完成事项：
+1 cmserver模块配置项LicenseKey；
+2 初始化mysql，表aicall_module_config配置项中需指定TTS的地址；
+3 配置vi /app/aicall-web_91001/dist/static/config.js 需要配置asr/tts服务器IP			 
+
+TTS 
+
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export MYSQL_HOME=/app/zhangke/mysql
+export PATH=$PATH:$MYSQL_HOME/bin
+
+bin/mysqld --initialize --user=mysql --basedir=/app/zhangke/mysql --datadir=/app/zhangke/mysql/database
+
+HqAurkJuf6&
+
+
+ln -s /app/mysql/bin/mysql /usr/bin
+
+update user set password=password("yun123") where user='root';
+
+
+mkdir -p /app/ivr_voice
+mkdir -p /app/aicall_record
+mkdir -p /app/tts_voice
+mkdir -p /app/ivr_voice/execute
+mkdir -p /app/ivr_voice/unexecute
+
+ 
+mkdir -p /app/ivr_voice
+mkdir -p /app/aicall_record
+mkdir -p /app/tts_voice
+mkdir -p /app/ivr_voice/execute
+mkdir -p /app/ivr_voice/unexecute
+
+alter user 'root'@'localhost' identified by 'yun123';
+
+UPDATE `aicall`.`aicall_module_cluster` SET `module_id` = '90001', `module_name` = 'pds', `mgroup_id` = 'default', `module_outer_ip` = '192.168.180.129', `module_inner_ip` = '192.168.180.129', `module_tcp_outer_port` = 0, `module_tcp_inner_port` = 9510, `module_tls_port` = 0, `module_http_port` = 9610, `module_https_port` = 0, `module_udp_port` = 0, `state` = 1, `dc` = 10, `remark` = '预呼模块', `create_time` = '2020-02-03 11:18:45' WHERE `ID` = 53;
+UPDATE `aicall`.`aicall_module_config` SET `module_config_value` = 'ws://121.199.41.82:8101/ws/v1'  WHERE `module_config_key` = 'tts.ali.v2.nls.ttsUrl';
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yun123' WITH GRANT OPTION;
+
+jdbc:mysql://192.168.180.129:3306/aicall?useUnicode=true&amp;characterEncoding=UTF-8&amp;TreatTinyAsBoolean=false&amp;autoReconnect=true&amp;failOverReadOnly=false
+jdbc:mysql://16.5.32.170:3306/aicall?useUnicode=true&amp;characterEncoding=UTF-8&amp;TreatTinyAsBoolean=false&amp;autoReconnect=true&amp;failOverReadOnly=false
+
+mysql访问用户(加密后的，openser/yanshiopenserpass92)
+-------------------------------------
+bpEFEzTd+Yo=
+bEvVqZ69A9DxNwNy9bDDCZf+zYNVgxLw
+
+netstat -nlp|grep ‘9520|9620’
+
+cd /app/zhangke/3.0-poc-init/packages/
+
+挂载步骤：
+-------------------------------------------------------------------
+1.在nfs服务器安装：yum -y install nfs-utils；
+2.修改/etc/exports文件，填入挂载的路径，如/app/tts_voice *(rw,no_root_squash,async)
+										  /app/ivr_voice *(rw,no_root_squash,async)
+										  /app/aicall_record *(rw,no_root_squash,async)
+3.exportfs -r让配置文件生效；
+4.启动rpcbind、nfs服务：service rpcbind start，service nfs start；
+5.设置rpcbind、nfs开机启动：systemctl enable nfs，systemctl enable rpcbind；
+6.在客户端安装nfs：yum -y install nfs-utils；
+7.客户端启动nfs: systemctl start nfs
+8.客户端挂载目录：mount -t nfs 10.163.198.107:/app/tts_voice /app/tts_voice 
+				  mount -t nfs 10.163.198.107:/app/ivr_voice /app/ivr_voice
+				  mount -t nfs 10.163.198.107:/app/aicall_record /app/aicall_record
+
+研发环境
+
+
+mount -t nfs 192.168.182.102:/app/zhangke/count102 /app/zhangke/count102
+
+不停服务添加白名单：
+-------------------------
+修改/app/aicall-clpms_97001/conf/autoload_configs/acl.conf.xml
+运行脚本clpms_cli.sh；
+输入reloadacl;
+输入...返回
+
+mysql用户名密码加密方法：（以下为加密openser的命令）
+-------------------------
+java -jar EncryptDB_execute.jar openser
+
+License获取需要信息：
+-----------------------------
+cmcloopen
+6200dc2cbff68bdeab93f1575a7ce06f8606
+
+
+
+
+单选：
+1.语音识别的调用流程是什么；
+2.日志出现"invalid voice name" 表示哪里出错；
+3.TTS的模型存储在哪个目录；
+4.专有云中，相关服务的配置文件存在宿主机的那个目录；
+5.语音合成服务支持的待合成文本的编码格式是什么：
+6.公有云的token有效期如何判断；
+7.一句话识别RESTful API的方式使用服务，http请求头部域的conten-type需要设置的值为什么？
+8.MRCP协议语音识别，语音流是通过什么方式发送的；
+9.调用语音识别服务时，一般采样频率是多少；
+
+判断：
+10.使用自学习平台训练热词时，热词可包含标点；
+11.定制语音模型生效时间小于1s;
+12.语音识别和语音合成不可以部署在同一台服务器；
+
+多选：(每道题目都给出了正确选项的个数)
+13.MRCP依赖哪几个协议(3个)；
+14.通过apes获取机器码的方式有(2个)；
+15.智能语音交互专有云的宿主机和工程的resource目录存储存在哪些服务资源？(2个)
+16.语音打断MRCP实现；
+17.apes主要功能有(2个)；
+18.MRCP协议说法正确的有；
+19.语音识别引擎支持哪种语音格式；
+20.语音合成时需要提供的信息(3个)
+
+
+@l3rwC*7n29V#0t0
+
+
+海尔项目问题：
+1.使用xshell连接上堡垒机后需要选择指定的服务器；输入编号+Enter;
+2.无法使用xshell上传文件，需使用工具crt上传；
+3.上传时需注意上传的目录，不是所有目录当前用户都有权限上传文件，进入/home/user(登录账户)/目录后再上传；
+4.
+
+
+netstat -anpt|egrep '8060|8888|8868'
+
+netstat -anpt|egrep 8060
+netstat -anpt|egrep 8888
+netstat -anpt|egrep 8868
+
+
+*manager登录页面验证码不显示处理方式：
+/usr/share/fonts 目录解压micro.tar.gz
+执行fc-cache 然后重启mananger的tomcat
+如没有fs-cache命令.yum安装fontconfig即可
+
+
+mysql -hrm-m5eawg8s4mx9rv3mq.mysql.rds.aliyuncs.com -uroot -pTMHa@^YK0ouaKa9u 
+
+
+netstat -nlp|egrep '8101|7010|1544'
+
+mysql -hrm-m5eawg8s4mx9rv3mq.mysql.rds.aliyuncs.com -uaicall -p aicall < aicall-modu.sql
+
+mysql -hrm-m5eawg8s4mx9rv3mq.mysql.rds.aliyuncs.com -uaicall -ph8S5n9m3tqg
+加密后的aicall用户名：btNFmbQdM+o=
+加密后的h8S5n9m3tqg密码：s+vQuVEUlnq1ZB4KvRfcYg==
+
+
+http://118.31.119.189:18090，账号密码：13971437860  ytxzhangke
+
+admin/wanglei111
+
+外呼无响应：evt.hungub  sipcause:408 一般表示网络超时
+
+1、呼叫的问题看cmserver就行 2、tts生成看ivr
+
+nls-gateway.cn-shanghai.aliyuncs.com
+
+121.199.41.82:8101 tts
+121.199.57.91:7010 asr
+
+
+1 安装aicall-batch,升级数据库aiconfig时报错，插入aicall_module_cluster时库中有重复module_id；
+
+使用导入sql语句来测试的流程：
+1 在aicall_bot表中新增一个机器人，方法：Navicat里面复制粘贴其他记录，修改字段bot_id、bot_name；
+2 在aicall_speech_engine中绑定机器人，方法：Navicat里面复制粘贴其他记录，修改字段bot_id(同步骤1中的bot_id);
+3 在aicall_flow表中新增一个流程，方法：Navicat里面复制粘贴其他记录，修改字段flow_id、bot_id(同步骤1中的bot_id)；
+4 在aicall_income表中配置接入号，方法：Navicat里面复制粘贴其他记录，修改字段id、num(测试呼叫号码)、bot_id(同步骤1中的bot_id),words(开场白，具体可参考话术流程),varjson；
+5 在aicall_intention表中配置意图，包括开场白，方法：Navicat里面复制粘其他记录，修改字段id、bot_id(步骤1中设定)、intention(参照话术intent填写);
+6 在aicall_intention_regx表中配置意图正则表达式，方法：Navicat里面复制粘贴其他记录，修改字段bot_id(同步骤1中的bot_id)、intent_id(同步骤5中id对应)，regx(填写正则表达式)；
+7 在aicall_bot_trigger表中配置开场白触发，方法：Navicat里面复制粘贴其他记录，修改字段id、bot_id(同步骤1中的bot_id)、flow_id(同步骤2中flow_id)、intent_id(同步骤5中id)、intend_name(开场白，具体可参考话术流程)
+注意：修改完数据库后需重启ivr模块，清理redis缓存后再使用软电话进行测试；
+
+清除Redis中流程Key：
+-------------------
+1 登录redis客户端：进入目录cd /app/redis-2.6.17/src，运行命令：./redis-cli;
+2 密码认证命令：auth ytx888yun;
+3 运行命令删除key: del "aicall012|flow_id"(这里的flow_id就是我们在表aicall_flow中新建数据时候的flow_id，如5201，命令就是del "aicall012|5201");
+4 运行exit退出
+
+./redis-cli -a ytx888yun keys "*|52047" | xargs ./redis-cli -a ytx888yun del
+./redis-cli -a ytx888yun keys "*|5720" | xargs ./redis-cli -a ytx888yun del
+id可以是电话号码(如010123456)，流程id(如5201), 机器人id(如5001)等
+
+aicall_bot表删除scene, audit_user, audit_time, audit_result , save_flow,  asr, asr_id, asr_profile,  asr_params,  tts, tts_id, tts_corp, tts_tone字段，asr, asr_id, tts,tts_id, tts_speed, tts_volume迁至aicall_speech_engine，trade改为trade_id（存储aicall_trade的ID字段）
+
+./redis-cli -a ytx888yun keys "*|5202" | xargs ./redis-cli -a ytx888yun del
+./redis-cli -a ytx888yun keys "*|5002" | xargs ./redis-cli -a ytx888yun del
+ 
+说话者的类型 0 机器人话术; 1 用户话术; 2 识别的意图; 3 节点跳转; 4 发送短息; 5 提取到的信息; 6 挂机节点; 7 dtmf收键内容
+
+客户管理：增删改查 张科
+   rest：创建外呼接口  没提测的话直接提工单 张科
+   manager：没提测，直接提工单  张科
+   
+/v1/aicall-web/auth/{action}
+
+url解释：
+
+/v1/   版本号
+/aicall-web/    表示用户端网站     /aicall-manager/ 表示运营端网站
+/auth/     /knowledge/  ...    表示网站的功能模块
+/{action}/   最后一个表示动作    比较save   query    delete
+
+
+入库说明：[李明成提供]
+-------------------------------------------------------------------
+1、创建机器人检查入库基础数据
+机器人新增：aimatrix.aicall_bot
+外呼-添加外呼机器人默认知识库：aicall_kb.aicall_knowledge
+呼入-添加呼入机器人默认知识库：aicall_kb.aicall_knowledge
+机器人语音引擎设置新增：aimatrix.aicall_speech_engine
+2、创建流程入哪些数据
+流程新增：aimatrix.aicall_flow
+3、创建意图：
+意图新增：aicall_intention
+意图规则新增：aicall_intention_regx
+意图相似问新增：aicall_intention_similar
+意图词槽新增：aicall_intention_slot
+机器人训练状态改为未训练：aicall_bot
+同步意图到ES：aicall.Similar
+
+
+入库说明：[马亮提供]
+-------------------------------------------------------------------
+1、电话开始呼叫时，ivr负责写入aicall_call_record，除end_time、duration、这两个参数在通话结束后才写入，其余字段接通电话后就有数据
+2、通话过程中对话详情，由aicall-batch模块写入：record_interval字段只有用户输入时才有只，即type=1时，其余字段任何情况下都有数据
+
+
+
+机器人、流程、意图管理、实体管理、知识库管理
+
+
+web端创建任务，pds会写入redis的001和002，然后pds就开始扫描任务，outcome表传号之后，pds扫描到之后会给ivr送号，正在执行的任务在003里
+
+ RingCause_770 = 770, //关机
+ RingCause_771 = 771, //停机
+ RingCause_772 = 772, //暂时无法接通
+ RingCause_773 = 773, //正在通话
+ RingCause_774 = 774, //空号
+ RingCause_775 = 775, //无人接听
+ RingCause_776 = 776, //来电提醒
+ RingCause_777 = 777, //呼入限制
+ RingCause_778 = 778, //网络忙
+ RingCause_779 = 779, //呼出限制
+ RingCause_780 = 780, //线路忙，嘟嘟
+ RingCause_781 = 781, //用户拒接
+ RingCause_782 = 782, //呼叫转移
+ RingCause_783 = 783, //传真机摘机识别
+ RingCause_784 = 784, //自动应答机摘机识别
+ RingCause_785 = 785, //自然人摘机识别
+ RingCause_786 = 786, //接通无人回话
+ RingCause_787 = 787, //回铃音标准嘟嘟声
+ RingCause_788 = 788, //彩铃
+ RingCause_789 = 789, //振铃40秒超时未摘机
+ RingCause_790 = 790, //摘机后未识别状态
+
+
+set bot_id0 = ""
+DELETE from aimatrix.aicall_bot where bot_id="";
+DELETE from aimatrix.aicall_bot_kb where bot_id="";
+DELETE from aimatrix.aicall_bot_trigger where bot_id="";
+DELETE from aimatrix.aicall_bot_model where bot_id="";
+
+DELETE from aimatrix.aicall_call_record where bot_id="";
+DELETE from aimatrix.aicall_dialog_record where bot_id="";
+DELETE from aimatrix.aicall_entity where bot_id="";
+DELETE from aimatrix.aicall_entity_regx where bot_id="";
+
+DELETE from aimatrix.aicall_flow where bot_id="";
+DELETE from aimatrix.aicall_income where bot_id="";
+DELETE from aimatrix.aicall_intention where bot_id="";
+DELETE from aimatrix.aicall_intention_regx where bot_id="";
+DELETE from aimatrix.aicall_intention_similar where bot_id="";
+
+DELETE from aimatrix.aicall_outcome where bot_id="";
+DELETE from aimatrix.aicall_similar_slot where bot_id="";
+DELETE from aimatrix.aicall_speech_engine where bot_id="";
+DELETE from aimatrix.aicall_task where bot_id="";
+
+
+#1、对话管理-用户意图，新增意图页面，规则匹配不应可添加两个及以上相同的规则；
+2、动作组件接口地址输入合法的url时，无法保存；      #176264
+3、新增意图页面，通过划词删除槽位无效；  #176265
+#3、新增意图，划词进行添加槽位时只能保存最后一个槽位；
+4、新增意图页面，展开后的删除槽位按钮不应能显示在其他页面；  #176266
+
+5、新增意图页面新增意图填槽,入库后create_time和update_time为null;      #176267
+6、意图详情页面，意图填槽列表选择实体不应为空；     #176268
+#4、点击增加意图填槽按钮来新增填槽时提示保存成功，实际无法入库；
+5、绑定语音引擎页面报错；
+6、对语音引擎列表搜索到的结果进行翻页后，列表显示所有数据；    #176270
+7、语音引擎设置，TTS选择阿里后音色默认值无效；(保存时提示音色未选择)     #176269
+8、信息收集组件中参数设置列表不显示实体名；   #176271
+
+
+@张科 多轮对话（VUI）、知识库管理（含问答库）--- 测试及测试用例编写
+
+1、测试库中新增表-部分字段无注释   #176511
+2、机器人不放音；    #176512
+3、添加用户意向，页面报错；   #176513
+4、任务详情数据显示异常；  #176307
+5、数据库中将机器人下线后，流程依然处于不可编辑状态；  
+6、用户意图缺少内置的repeat；   #176451
+7、新增标准实体、新增实体值入库信息错误；  #176362
+8、主流程删除后，仍然无法编辑其他流程接听组件；  #175947
+
+redis中包含aicall002的key数量不正确：
+--------------------------------------------------------------------------------
+按照wiki上描述，redis中包含aicall002的key，为所有任务的key(未执行+正在执行)；
+redis中执行命令keys *，查看到含aicall002的key很少；
+再通过命令：smembers aicall001|90001，返回的是待执行的任务；
+再通过命令：smembers aicall003|90001，返回的是正在执行的任务；
+可以看到含aicall002的key的数据明显少于后二者key之和
+
+ 
+知识库管理、系统设置
+
+
+
+1、创建机器人页面，"请选择您要创建的机器人类型"文字不合适应删除；
+2、机器人名称不应能接受特殊字符；
+3、创建机器人页面，机器人类型及说话方式应有一个默认值；
+4、机器人无流程时点击业务上线，应给出正确的不能上线提示；(目前报红色文字错误，与页面异常时风格一致)
+5、画布页面仅编辑蓝点后保存草稿,提示"流程转换异常",不合理；
+6、开始接连接其他非放音节点后保存提示于有错； "开始节点下个节点只能触发节点,请检查!"
+7、
+
+@张科 顶部导航、机器人管理（新建机器人、机器人设置、上线逻辑校验）、
+任务管理、命名实体（上周修改了方案，去掉了标准实体，有变动，需要着重测试）、系统设置（绑定语音引擎无响应，明成在处理）
+
+
+
+
+ 1、触发意图节点中"添加意图"按钮应去掉；
+ 2、查看意图详情，页面报错；
+ 3、新增意图，意图相似问使用模型配置，添加槽位后保存报错；
+ 
+ 4、新增意图，对已删除的相同词语进行划词填槽，提示"不能有重复划词"；
+ 5、删除划词的相似问，填槽未同步删除；
+ 6、机器人回答节点中"放音"二字应去掉；
+ 7、意图填槽列表修改实体后，槽位名称格式没有同步更新；
+ 8、通过"对应槽位"来删除槽位时，应有提示；
+ 9、流程上线后再下线，修改流程后保存不成功；#信息填槽组件没放音，直接跳过了
+10、点击触发意图节点，触发条件下拉选项中的"新增意图"，页面报错；
+
+
+
+好的，同您确认一下以下信息，您的小名是{user.nickname_2rk6j7f4}，您的语文老师的名字是{user.Chineseteacher_n9f57yyw}，对吧
+
+
+
+7z.exe a -tzip dist.zip "E:\dist_upgrade\*" -r -mx=9 -m0=LZMA2 -ms=10m -mf=on -mhc=on -mmt=on 
+
+
+1、流程连线有问题时，保存无响应
+
+
+
+7a9ab24fa2532187f75da21152b7dfc6
+
+54分24s挂机
+
+
+
+
+pds 5.0.31 
+1. 调整送号的方式：缺省采用指定目录下获取csv文件。
+2. 解决redis应用并发计算异常的问题。
+3. 解决了同一个号码呼叫2次的问题。
+4. 将redis缓存的信息中拆分出应用设置的总并发数，即aicall002只存储任务相关的信息，不存储应用的总并发数，pds还是从app info中获取应用的总并发
+数。
+5. 批量update out_come表的号码status状态。
+
+删除重复行的命令:	
+select * FROM aicall_module_config  where (module_name, module_config_key) IN (SELECT module_name, module_config_key FROM (SELECT module_name, module_config_key FROM aicall_module_config GROUP BY module_name, module_config_key HAVING COUNT(*)>1) e)
+ AND ID IN (SELECT ID FROM (SELECT min(ID) AS ID FROM aicall_module_config  GROUP BY module_name, module_config_key HAVING COUNT(*)>1) t) ORDER BY module_name
+ 
+
+查询重复行的命令:
+SELECT module_name, module_config_key FROM aicall_module_config GROUP BY module_config_key HAVING COUNT(module_config_key)>1
+
+
+~]# hwclock --systohc    #以系统时钟为准，同步硬件时钟
+
+~]# hwclock --hctosys    #以硬件时钟为准，同步系统时钟
+
+sudo hwclock --set --date="04/21/20 14:18:"
+
+
+
+
+1、信息填槽，反问话术中多种话术一次性放音；
+2、机器人上线后从流程页面跳转到其他页面时候不应提示保存草稿；
+3、条件组件不被放音；
+4、语音引擎设置，TTS厂商修改为speech后机器人不放音；
+5、信息填槽反问话术不被保存；
+
+
+9、开场引导话术支持输入2~8个字符，实际支持0~8个字符；
+10、开始节点不能连接DTMF；
+11、开始节点可连接结束节点，先连接好后将机器节点勾选结束挂机，可保存成功；
+12、导入号码后可再次点击导入；（实际未覆盖也未添加）
+13、选择外呼号码列表有多余的属性列；（导入号码模板也有，多了实体变量作为增加列）；
+14、异常号码导入时提示导入成功；
+15、缺失属性，仍可导入；
+
+
+
+
+
+1、开始节点不能连接DTMF按键节点;
+2、开始节点可连接结束节点(先连接好后将机器节点勾选结束挂机，可保存成功);
+
+3、再次编辑相似问为已有相似问可保存成功；
+4、修改相似问为已有相似问，直接点保存按钮可保存成功；
+5、通过槽位删除划词后再次划词时提示不能有重复；
+6、可输入相同的正则；
+
+8、导入号码后可再次点击导入；（实际未覆盖也未添加）
+9、选择外呼号码列表有多余的属性列；（导入号码模板也有，多了实体变量作为增加列）；
+10、异常号码导入时提示导入成功；
+11、缺失属性，仍可导入
+
+额外：
+12、昨天问题：信息填槽反问话术不被保存
+13、建议：意图相似问不支持输入空格键；
+
+
+
+
+1、bot 后台报error日志；
+2、条件组件未被触发；
+3、反问话术最大设置3次，反问超过3次后仍然放音；
+4、
+
+
+
+53:22
+
+
+
+
+
+1、第三次未识别放音时间：2020-04-22 17:51:22.325(第三次放完音后挂断)         2020-04-22 18:09:39.488(第三次放音完未挂断，第四次放完音挂断)  
+2、IVR收到hangup时间：2020-04-22 17:51:22.501                                2020-04-22 18:09:45.403
+3、clpms给cmserver发送hangup的时间：2020-04-22 17:51:22.229                  2020-04-22 18:09:45.289027
+
+
+
+
+./redis-cli -a ytx888yun keys "aicall031|*" | xargs ./redis-cli -a ytx888yun del
+
+
+1 创建内置同名意图时，信息填槽组件编辑完信息保存后再次查看，既往信息被清除；
+还有他们画的复杂流程里面 如果之前也用到了自定义的肯定、否定、拒绝，信息填槽也不会显示信息了 ，添加的内置意图会影响到以往流程
+2 DTMF按键收号用户未识别，播放超时话术后，不操作任何按键，机器人1分左右后才挂断；(并且可以无限次输入)
+#3 版本升级后导入号码报错；
+4 DTMF按键输入未设置的键后，先放音原话术，放音中途被超时话术打断；
+5 机器人下线后还可以进行外呼；
+6 
+
+
+
+ 1、使用内置实体进行填槽无效；
+ 2、修改实体名后，槽位名称没有同步更新；
+ 3、槽位被删除后，对应的实体变量未在条件组件中同步清除
+ 4、添加槽位，可选实体中不应显示实体变量
+ 5、多个槽位使用一个实体时，只收集第一个；  #钟玲说提过
+ 
+ 6、划词过长会导致删除槽位按钮不显示；
+ 7、划词不应能交叠；(比如一个词被划后，第二次划词时包含了已划词的部分或全部时应提示 不能交叠，并弹出"删除槽位"按钮)
+ 
+ 8、可设置相同的条件(如:条件1和条件2相同)；   #未提交bug
+ 9、条件组件，条件修改为等于空或不等于空时，同步到数据库时出错；
+10、条件组件，比较值中包含单引号或双引号时流程卡住；
+
+11、任务起始日期应该不能选今天之前的时间；
+12、不应能创建同名的任务；
+13、
+
+偶现问题：电话拨通，并且用户接通电话
+
+ccpdo -i 使用root权限
+
+ 1、语音引擎设置，ASR灵敏度修改后查看，恢复到默认值；
+ 2、语音引擎设置，语速和音量修改后未生效；(机器人放音速度和音量未变化)
+ 
+ 3、短信模板不能编辑、删除、提交；
+ 4、创建任务出错；
+  
+ 5、机器人上线时提示没有意图数据；
+  
+ 6、转人工方式-服务号码下拉框点击无响应；
+ 7、转人工不输入号码保存时无提示；
+ 8、转人工超时时间不准确；
+ 9、添加拒绝意图后保存到xml中是intent.unfound,日志中拒绝意图触发的是intent.refused
+
+ 
+
+条件组件的测试;
+ 
+1、导入号码后无提示，也未外呼；   已修复未验证
+2、不能创建与已删流程同名的流程；
+3、机器人重新上线后不能立即外呼(需要先切换页面至首页，再进入任务管理页面才可外呼)
+4、信息组件不放音；  已修复验证通过
+
+1、导入号码后没有收到呼叫，但是日志显示已经呼叫，并且立即hangup了；
+2、机器人回答节点勾选发送短信同步到xml有问题；sms=undefine
+3、不能添加已删同名短信模板；
+4、语速无法设置中间值；只能设置0 或 100
+
+此外，性能测试环境搭建要求说明书(集群大小，部署方式、操作系统版本，服务器内存，CPU，网络带宽，基础组件版本等)也需要相关同学给定。
+
+
+1、短信模板编辑后保存时提示模板名存在不能保存；
+2、未识别超最大限制次数仍然放音；
+
+
+ERROR : no idle session,used(10)
+
+
+3.0/
+
+1、按周禁呼无效；
+2、表唯一约束需要先处理；
+3、同步数据到aicall_faq_category表有问题；
+4、同步完数据，这个工具应该给个提示；
+5、工具在windows上启动时会报一堆错；
+
+Mysql-proxy121.43.37.21（生产库只读账号）
+121.43.37.21
+4040
+ro_aicall
+urce#user123
+
+
+
+1、只有一个蓝点保存的时候弹出两个提示；
+2、创建任务，什么都不输入点击创建按钮，提示语有误；
+3、创建任务之前提示绑定语音引擎；
+4、删除槽位后，划词填槽时仍可看到已删槽位对应的实体变量；
+5、使用内置实体槽位收集信息时，只能收集一个，且所有槽位收集到的信息一样；
+
+6、机器人数据和行业数据暂时不支持导入，#aicall_bot表导入数据有问题；
+7、aicall_intention可以导入名称相同的意图 ；
+8、type = 1 的数据是否处理？
+9、3.0小知识库库里面 evt.的意图如何处理？目前直接过滤掉
+
+
+使用root用户执行命令：chown -R mysql:mysql /app/mysql/database/*
+
+
+1、别名可以为空(空格)；
+2、添加/删除槽位按钮显示后，单击相似问文本框无法关闭该按钮；
+3、实体可以为空；
+
+
+zip -r aicall-batch_99001.zip aicall-batch_99001/ -x aicall-batch_99001/lo
+zip -r aicall-batch_99001.zip aicall-batch_99001/ -x aicall-batch_99001/lo
+zip -r aicall-nlp_94001.zip aicall-nlp_94001/ -x aicall-nlp_94001/lo
+
+
+
+00505694be93
+
+
+000001/user0/123456
+123456/user1/123456
+
+
+
+mkdir -p /app/ivr_voice
+mkdir -p /app/aicall_record
+mkdir -p /app/tts_voice
+mkdir -p /app/ivr_voice/execute
+mkdir -p /app/ivr_voice/unexecute
+
+
+POST /v1/aicall/task/commit HTTP
+Accept: */*
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.11 (Java/1.8.0_131)
+Host: 192.168.182.102:9600
+Content-Length: 606
+Content-Type: application/json;charset=UTF-8
+
+{"appid":"20150314000000110000000000000010","bot_id":7893,"user_id":66,"task_id":"15895368067239847746","task_name":"测试02","task_desc":"","start_date":"2020-05-15 00:00:00","end_date":"2020-05-30 23:59:59","max_concurrent":10,"min_concurrent":1,"isrecord":1,"disnumber":"4022000001","caller":"4022000001","call_policy":[{"type":0,"policy":"{\"policy_type\":0,\"policy_date\":\"21:00:00,23:59:00\",\"policy_name\":\"夜间禁呼\"}"},{"type":0,"policy":"{\"policy_type\":0,\"policy_date\":\"00:00:00,09:00:00\",\"policy_name\":\"晨间禁呼\"}"}],"num_dir":"/app/nums/20150314000000110000000000000010"}
+
+
+zhangkl<zhangkl@yuntongxun.com>
+
+eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3d3dy55dW50b25neHVuLmNvbS8iLCJzdWIiOiI2NiIsImF1ZCI6IldFQiIsIml${__RandomString(20,,)}.Nyw1aJ4_zXSjyba7S_dmk6xWMkOM4VYw47Tp0pDeCdii6e6keBsssUFs8Wix5wqvGrqkf2Gey_9xJ3oofBUm1w
+
+
+
+15895368067239847745
+
+
+目的地：天门|上海|北京
+出发：武汉|潜江|广州|昆明
+
+1、放音节点勾选发送短信，实际未发送；
+2、放音节点取消发送短信后，对应的xml未同步更新；
+3、转人工组件，输入不合法的手机号码提示语有问题；
+4、触发未识别超最大次数限制会执行挂机，最后一次触发未识别后应播放挂机话术，而不应该继续播放未识别话术，此时未识别话术没有意义因为放完音就挂机了，反而会让用户莫名其妙
+对未听清/超时类似；
+
+https://jmeter-plugins.org/wiki/PerfMonAgent/
+
+
+00505694be93
+
+mkdir -p /app/ivr_voice/execute
+mkdir -p /app/ivr_voice/unexecute
+
+mount 192.168.1.1:/hoome /mnt
+
+
+
+1、任务量太大pds无法停止；
+2、socketTimeout;
+3、错误率
+
+1000
+
+{"token":"c079ce8845a243b9ad4e7bbe35","appid":"aaf98f894efcded4014f063a08810de8", "account":"8a48b5514e8a7522014eaa5ae0382385"}
+
+1、匹配
+
+
+alter table `ai_test_5.0`.aicall_intention add unique int_un(bot_id,intention);
+alter table `ai_test_5.0`.aicall_intention_similar add unique int_sim_un(intent_id,similar);
+alter table `ai_test_5.0`.aicall_intention_regx add unique int_sim_un(intent_id,regx)
+
+
+
+./redis-cli -a ytx888yun keys "aicall03[0-4]" | xargs ./redis-cli -a ytx888yun del
+
+
+./redis-cli -a Y!t^k8)ph5G+Ta%n keys "aicall03[0-4]*" | xargs ./redis-cli -a Y!t^k8)ph5G+Ta%n del
+
+
+jmeter -g result.jtl -e -o  
+
+
+
+scp -P 5522 encryp.txt yun@121.43.37.21:/app/
+
+
+
+cmserver: 24[13(CCM接口-Event)+2(CCM配置接口)+9(CCM业务接口 Action)]
+PDS:2个http
+IVR:3[1(Action) + 2(Event)]
+botengine:7[3(Action) + 3 (event)] + 3个ws
+Modle:7
+rest:101
+
+ 
+
+
+
+5月份工作量统计-张科
+------------------------------
+5.0项目：19天
+
+
+${__RandomFromMultipleVars(是的\,不是,)}
+
+
+./redis-cli -a ytx888yun keys "aicall034|*" | xargs ./redis-cli -a ytx888yun del
+
+{"appid":"20150314000000110000000000000010","botid":5869,"taskid":"15910700271301451877","task_name":"测试14","caller":"4022000001","called":"13971437860","disnumber":"4022000001","isrecord":1,"varjson":"{\"sex\":[\"先生\"],\"name\":[\"张科\"]}","cmd":"startflow","sender":"8db3f32d6b39d38ef19150bd66031441"}.
+
+tcpdump -i eth0 -nnA 'port 80'
+
+
+aicall-rest模块压测接口：
+1、获取机器人列表接口
+2、创建机器人接口
+3、批量导入客户资料接口
+4、获取通话记录接口
+5、获取意图列表接口
+6、创建实体接口
+
+INSERT INTO VALUES ('20200314000000110000000000000010', '000001', 100, '123456', 10, '4022000001', 'a1', 0, 'zhangxj', 'default', 1, 'http://www.baidu.com', NULL, 'sofia/internal', 16, NULL, '{\"token\":\"7748bdb16b78456a97d532776796f25a\", \"appid\":\"8a216da863f8e6c201641ba44dd611dc\", \"account\":\"8a216da85cf298b3015d0c3a1f2e08d6\"}', 1, 1, 500, '2018-04-26 09:51:49', '2020-04-11 11:44:38');
+
+INSERT INTO VALUES (568, '20150314000000110000000000000010', 'zhang568', 'zhang568', 'E10ADC3949BA59ABBE56E057F20F883E', '', '', 0, 0, 0, NULL, 0, 0, '2020-05-07 19:59:44', '2020-03-06 15:02:57', '2020-05-07 19:59:44');
+INSERT INTO VALUES (568, '20150314000000110000000000000010', 'zhang568', 'zhang568', 'E10ADC3949BA59ABBE56E057F20F883E', '', '', 0, 0, 0, NULL, 0, 0, '2020-05-07 19:59:44', '2020-03-06 15:02:57', '2020-05-07 19:59:44');
+
+
+测试用例模板；测试用例整理计划；
+
+
+
+触发意图:可选范围为机器人下的所有意图
+机器人回答组件:在这里编辑放音时的话术，及其他设置，可作为结束节点
+条件判断组件:用于根据变量的值区分用户，不同条件走不同流程
+DTMF按键:根据不同的按键设置，走不同的流程
+动作组件:用于设置接口地址和方法
+转人工组件:转人工处理节点，在此设置人工电话号码（座机或手机）
+信息填槽组件:用于收集用户回答信息
+保存:保存编辑的流程内容
+返回按钮:返回多轮对话页面
+
+1、意图管理页面没有搜索按钮；（意图页面的搜索样式与其他不统一，比如机器人管理页面不支持回车键搜索，但提供了搜索按钮）
+2、增加意图页面必填项标志，字体风格不统一；
+3、机器人管理层级标题删除一层；
+4、所有的查询/搜索按钮应统一为查询(搜索)；
+5、绑定知识库全选功能无效
+6、黑名单层级标题应添加一层直属标题；
+7、系统设置层级标题需要删除一层；
+8、建议将知识库列表菜单项去掉；
+9、号码模板文件各列字段应显示中文；
+
+10、【返回机器人列表】功能多余，因为单击下拉框外任一区域均可返回机器人列表；
+11、建议在选择机器人列表和快捷搜索中添加滚动条，否则没有鼠标的用户无法选择末尾几行的机器人；
+12、建议将修改密码做成"按钮"样式，不太明显；
+13、建议修改密码框中旧密码默认为空，现在显示的是用户昵称，要让用户再次输入；
+14、修改密码时输入的旧密码不应该明文显示；
+
+15、新增同名客户分组时，无法保存成功，但无任何提示；
+16、新增客户分组界面中的"取消"和"确定"没有实际意义，起到的只是关闭二级框的作用；建议调整为一个按钮；
+17、黑名单管理-号码模板中列字段名应该为中文显示；
+18、黑名单管理，导入号码后的提示太难看；
+19、黑名单管理-号码模板下载后名称为"crm-blacklist-template",建议改为中文
+20、黑名单管理界面建议将"黑名单删除"按钮名称调整为"黑名单移除"
+
+21、属性管理，新增同名属性提示语建议改为"属性名称已存在",现版本提示为"字段名称已存在";
+22、建议将"新增号码"按钮名称调整为"新增客户"；
+23、现版本删除属性时提示"字段删除后，对应客户中心数据将同时被清除，是否确认删除字段",建议将"客户中心数据"调整为"客户信息"，与客户资料中名称保持一致；
+24、FAQ模板名称建议改为中文；
+25、FAQ模板中第一个字段为"标题（长度限制64）"，建议修改"长度限制64"为"最大可输入64个字符"；
+26、FAQ批量导入，再次导入文件无法覆盖先导入的文件；
+27、FAQ批量导入功能不生效；
+
+ 
+后端：173934
+前端：	173938
+bot: 173362 
+
+
+182284
+182292
+182341
+182439
+182441
+182445
+182345
+
+ 1、绑定模型后，模型列表不显示绑定的模型数据；
+ 2、manager增加账号输入密码应显示密文；
+ 3、新增的账户无法登录rest，提示用户不存在；
+ 4、租户管理-开通账号，编辑企业信息-机器人类型保存不生效；
+ 5、列表更新时间格式不正确；
+ 6、修改租户角色时无法对输入框信息进行编辑； 
+ 7、资源管理列表，部分默认数据中必填项字段值不应为空，或取消必填项标志"*"；
+ 8、资源管理页面，添加租户资源，"父节点"下拉框中有重复数据；
+ 9、资源管理列表，部分默认数据中父节点中值为数字，而父节点下拉框中没有数字项；
+11、资源管理页面，搜索条件"请选择父级资源"下拉为空；
+14、进入机器人管理-模型页面时，页面报错；
+15、查看机器人基本信息，缺失"机器人名称："字段；
+19、删掉机器人后，智能用户平台仍存在；
+20、无法新增模型，提示"网络异常"
+21、绑定模型功能无效
+
+
+12、资源管理列表表头名和编辑资源信息中看到的属性名不一致；
+13、租户管理列表搜索条件"企业类型"应该为"账号类型"；
+16、机器人管理页面，搜索条件机器人类型中的类型名称和机器人信息中展示的类型名称不一致；
+17、机器人管理表头机器人名称和机器人ID中英文应该统一；
+10、层级标题和菜单项名称不一致；
+
+
+22、建议在右侧菜单栏中着重显示指示当前页的菜单项
+18、建议添加机器人名称作为搜索条件；
+
+23、角色管理列表、默认超级管理员可删除
+24、系统账号设置，新增账号输入密码显示明文
+25、系统账号设置，默认账号没有手机号和邮箱，而这两项属于必填项
+
+
+
+
+
+与原型不一致：
+
+顶部导航
+--------------------------------------------
+隐藏/展开菜单栏按钮
+
+模型训练-模型管理：
+--------------------------------------------
+1、模型管理表列属性；
+2、搜索按钮布局不一致；
+3、新建模型，各字段未对齐；
+4、新建模型，模型应用场景下拉数据；
+5、查看模型信息；
+6、模型列表字段；
+
+模型训练-数据集管理：
+--------------------------------------------
+1、数据集管理表列属性；
+2、搜索和上传数据集布局；
+3、上传训练集信息；
+
+租户管理-租户管理：
+--------------------------------------------
+1、租户管理页面，搜索条件；
+2、租户管理表列属性；
+3、操作列下的三个按钮显示样式；(名称、样式)
+4、账户管理列表；
+5、编辑账号二级框信息；
+
+租户管理-角色管理：
+--------------------------------------------
+1、新增角色按钮名称；
+2、新增角色弹出框；
+3、编辑角色信息框；
+
+租户管理-资源管理：
+--------------------------------------------
+1、资源管理列属性；
+2、删除资源提示信息；
+3、编辑资源二级框信息；
+4、搜索条件；
+5、新增按钮名称及布局；
+
+
+
+1、运行管理-语音引擎管理，ASR/TTS/厂商编辑功能无效；
+2、运行管理-语音引擎管理，ASR/TTS/厂商新增功能无效
+
+3、黑词管理缺失搜索、编辑、删除功能；
+4、加载黑词管理页面报错；
+5、导入黑词/黑名单界面布局混乱；
+6、黑名单导入功能有问题；
+
+7、机器人管理，机器人下线提示语中有多余空格；
+
+军总，这一阵在处理工单的时候，频繁出现跟开发和产品同事argue，你看要不要跟开发产品同事同步一下:
+这是我总结的几类问题：
+1、工单改变状态需要加关于该工单的修改说明；
+2、对只修复了部分的工单，需要加另一部分不修复的说明；(针对一个工单涉及到多个功能点)
+3、对修复的工单如果未提版，需要放在开发手上；
+4、对需要产品确认的工单，若产品认可测试的说明直接指给开发；若不认可需要加必要说明，再指给测试；
+5、对建议类工单，产品若认可直接指给开发；不认可需要加必要说明后指给测试，由测试去关闭；
+6、涉及多模块调用的工单，需要开发内部转一下；
+7、对已提测模块中未实现的功能，测试提交的工单放在开发手中；
+8、对"脏数据"引发的工单需要开发处理后指给测试；
+
+
+1、用户昵称显示有问题；
+2、机器人管理，绑定模型，选择模型搜索条件无法清除；
+3、列表显示不整齐；
+4、缺失新增角色功能；
+5、租户管理-增加账户，昵称和密码默认填充当前manger账号的昵称和密码
+
+
+
+=MAX(B$1:B1)+1
+
+
+1、企业类型下拉框测试应该改为"体验"；
+2、新增的manager账户未分配角色就登录(提示未分配角色)，会导致管理员无法使用系统；必须重新登录才能使用；
+3、修改角色后，角色下用户登录平台后提示"权限不足"；
+4、表格未对齐
+
+
+1、model解绑时日志报java空指针异常；
+2、
+
+
+manager端现在有几个重要bug：
+【183156：机器人管理-租户机器人页面，查看机器人信息提示权限不足】， 
+【183051：manager端新建的租户企业-账号，登录到智能机器人平台无法使用功能】，
+
+
+共享机器人页面搜索条件中-机器人类型无效；
+
+
+error日志；压测时间；
+
+
+129+130：
+
+
+zip -r 5_0.zip aicall-cmserver_96001 aicall-ivr_92001 aicall-pds_90001 aicall-web_94001 bot-engine_98001 -x aicall-cmserver_96001/log/* aicall-ivr_92001/logs/* aicall-pds_90001/logs/* aicall-web_94001/logs/* bot-engine_98001/logs/* aicall-web_94001/apache-tomcat-8.0.36/logs/*
+
+
+
+JAVA_HOME="/app/jdk1.8.0_131"
+JRE_HOME="/app/jdk1.8.0_131/jre"
+export JAVA_HOME JRE_HOME
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+
+后面针对生产环境提交的工单 在工单title开头加一个前缀关键词"生产_"
+
+1、把控整个5.0测试情况，把控5.0测试质量；-功能性能
+2、压测情况快速实时同步给开发同事；(考虑单个接口压测20分钟左右)
+3、高可用测试环境下的测试用例整理；
+4、输出一个调试生产环境的checklist、对运维同事training；--已完成
+5、内部测试用例整理；
+6、性能测试工具Jmeter的快速上手文档，结合实际性能测试脚本进行描述；
+
+
+升级后测试范围及结果：
+--------------------------------------
+创建机器人： 成功
+创建任务：成功
+VUL各组件简单操作：成功
+各主要页面加载：无报错
+各搜索按钮：成功
+标签增删：成功
+语音引擎绑定：成功
+送号：无报错
+意图、实体增删：成功
+知识库增删：成功
+
+*未测主功能:呼叫(由于禁呼时间段无法完成呼叫测试)
+
+#发现一个问题：送号后因在禁呼时段未进行呼叫，但通话记录页面生成了一条通话时长为0分0秒的记录；
+
+压测模块优先级：aicall-model、pds、bot-engine、rest、batch
+
+1、需求文档-功能点整理
+------------------------------------------
+a:产品提供的原型及提供的功能清单
+b:各模块的提测文旦(说明)
+c:各模块部分功能逻辑实现文档(描述)
+d:生产反馈的问题清单(训练师反馈的问题)及已提交缺陷工单
+e:训练师团队输出的使用手册
+f:给到客户的功能点清单
+
+2、测试用例颗粒度-根据模块的功能特性来设计(考虑到时间成本-测试效果性价比)
+------------------------------------------
+pds、botengine、ivr的测试用例尽可能细致全面；
+rest、model、batch、cmserver、clpms可适当粗放
+
+3、测试用例分层-只对用户看得见的功能点设计测试用例
+------------------------------------------
+对数据库mysql、redis的验证不设计测试用例，这部书属于中间过程，但是需要知道入库出错带来的功能层面的影响,测试用例覆盖这些功能点就可以
+
+先整理功能点->评审功能清单->根据功能清单设计测试用例->评审测试用例
+
+对数据库mysql、redis的验证不设计测试用例，这部分属于中间过程，但是需要知道入库出错带来的功能层面的影响,测试用例覆盖这些功能点就可以
+
+模型绑定错误率接口：
+{"appid":"30200314000000110000000000000147","botid":9696,"trade_id":1,"model_type":"ner"}
+
+org.apache.http.NoHttpResponseException: 192.168.182.102:9660 failed to respond
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:141)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.executeRequest(HTTPHC4Impl.java:850)
+	at org.apache.jmeter.protocol.http.sampler.HTTPHC4Impl.sample(HTTPHC4Impl.java:561)
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerProxy.sample(HTTPSamplerProxy.java:67)
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.sample(HTTPSamplerBase.java:1282)
+	at org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.sample(HTTPSamplerBase.java:1271)
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:627)
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:551)
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:490)
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:257)
+	at java.lang.Thread.run(Unknown Source)
+服务器端由于负载过大等情况发生时，可能会导致在收到请求后无法处理(比如没有足够的线程资源)，会直接丢弃链接而不进行处理。此时客户端就回报错：NoHttpResponseException。 建议出现这种情况时，可以选择重试。
+
+
+
+/app/aicall_record/20150314000000110000000000000010/2020-04-03/23-26/4000000001_987654321_20200403232607.wav
+
+
+
+http://118.178.227.107:18010/recognize/getByFile?secret=aicall_asr_pz&filename=20150314000000110000000000000010/2020-04-03/23-26/4000000001_987654321_20200403232607.wav
+
+
+测试服务是否可用：
+----------------------------
+curl -X GET 'http://118.178.227.107:18010/recognize/test?secret=aicall_asr_pz&filename=/app/aicall_record/20150314000000110000000000000010/2020-04-03/23-26/4022000001_a113971437860_20200423174730.wav'
+
+测试转义功能：
+----------------------------
+curl -X GET 'http://118.178.227.107:18010/recognize/getByFile?secret=aicall_asr_pz&filename=20150314000000110000000000000010/2020-04-03/23-26/4022000001_a113971437860_20200423174730.wav'
+
+测试发邮件功能：
+----------------------------
+curl -X GET 'http://118.178.227.107:18010/recognize/getMail?secret=aicall_asr_pz&taskName=4022000001_a113971437860_20200423174730_wav_1593654918765&tos=zhangke@yuntongxun.com'
+
+ 
+
+
+curl -X GET 'http://118.178.227.107:18010/recognize/getMail?secret=aicall_asr_pz&filename=taskName&tos=收件人'
+
+curl -X GET 'http://118.178.227.107:18010/recognize/getBytaskId?secret=aicall_asr_pz&taskName=4000000001_987654321_20200403232607_wav_1593598211733&status=SUCCESS'
+
+创建表空间名
+create database 空间名 default character set utf8 collate utf8_bin;
+
+创建用户
+create user 用户名 identified with mysql_native_password by '密码';
+
+给用户赋权（上面设置了用户密码，则赋权时不需要再设置密码）
+grant all on 空间名.* to '用户名'@'%' identified with mysql_native_password by '密码';
+grant select,insert,update,delete,create,drop on vtdc.employee to 用户名 identified with mysql_native_password by '密码';
+
+
+1、content字段内容首字母为t的单词缺失"t"，被转义成制表符；
+2、content字段内容包含字符'0'的字符串，'0'及'0'后的内容被丢失；
+3、content字段内容的双引号丢失；
+4、源库为空的值同步过来为"NULL"或"0000-00-00 00:00:00";
+5、
+
+
+1、在config表手动加数据 2、手动删减数据 3、更改同步策略 4、修改数据状态，可用和禁用，对应的模块都要生效的
+
+
+{"username":"openser","password":"yanshiopenserpass92","host":"192.168.180.129","port":"3306","database":"aimatrix","table":"aicall_call_record","initialSize":"10","maxWait":"60000","maxActive":"100","minIdle":"10"}
+
+
+MySQL出现Waiting for table metadata lock的原因以及解决方法
+
+1、动作组件输入错误的参数点击测试无提示；
+2、语音引擎多点击几次asr绑定和tts绑定，音量变为0； 
+
+
+改密码：
+./redis-cli -a ytx888yun keys "aicall034|*|*" | xargs ./redis-cli -a ytx888yun del
+
+
+广发内部私密研发环境（阿里云）：
+
+121.41.31.158  5544
+121.41.38.98   5544 
+
+sshkey已添加 
+
+
+切换账号权限：
+su - yun    密码ytxcc123
+
+yun具备sudo或ccpdo权限
+
+
+/app/aicall-cmserver_96001/log/ *(rw,no_root_squash,async)
+/app/aicall-pds_90001/logs/ *(rw,no_root_squash,async)
+/app/aicall-ivr_92001/logs/ *(rw,no_root_squash,async)
+/app/aicall-model_99001/logs/ *(rw,no_root_squash,async)
+/app/bot-engine_98001/logs/ *(rw,no_root_squash,async)
+/app/aicall-clpms_97001/log/ *(rw,no_root_squash,async)
+/app/aicall-batch_89001/logs/ *(rw,no_root_squash,async)
+
+
+/app/aicall-pds_90001/logs/
+/app/aicall-batch_89001/logs/
+/app/aicall-ivr_92001/logs/
+/app/aicall-model_99001/logs/
+/app/bot-engine_98001/logs/
+/app/aicall-clpms_97001/log/
+
+mount 192.168.180.129:/app/aicall-cmserver_96001/log/ /app/test_env_log/cmserver/
+
+
+umount -t nfs 192.168.180.129:/app/aicall-web_94001/logs/ /app/test_env_log/rest/
+
+mount -t nfs 192.168.180.129:/app/aicall-web_94001/logs/ /app/test_env_log/rest/
+mount -t nfs 192.168.180.129:/app/aicall-batch_89001/logs/ /app/test_env_log/batch/
+mount -t nfs 192.168.180.129:/app/aicall-cmserver_96001/log/ /app/test_env_log/cmserver/
+mount -t nfs 192.168.180.129:/app/aicall-pds_90001/logs/ /app/test_env_log/pds/
+mount -t nfs 192.168.180.129:/app/aicall-ivr_92001/logs/ /app/test_env_log/ivr/
+mount -t nfs 192.168.180.129:/app/aicall-model_99001/logs/ /app/test_env_log/model/
+mount -t nfs 192.168.180.129:/app/bot-engine_98001/logs/ /app/test_env_log/botengine/
+mount -t nfs 192.168.180.129:/app/aicall-clpms_97001/log/ /app/test_env_log/clpms/
+
+/app/aicall-clpms_97001/log
+
+/app/aicall-batch_89001/logs/ *(rw,no_root_squash,async)
+/app/aicall-cmserver_96001/log/ *(rw,no_root_squash,async)
+/app/aicall-pds_90001/logs/ *(rw,no_root_squash,async)
+/app/aicall-ivr_92001/logs/ *(rw,no_root_squash,async)
+/app/aicall-model_99001/logs/ *(rw,no_root_squash,async)
+/app/bot-engine_98001/logs/ *(rw,no_root_squash,async)
+/app/aicall-clpms_97001/log/ *(rw,no_root_squash,async)
+
+
+1、实体新增后单击"保存"按钮，页面报错""；
+2、任务终止时提示"终止成功"，实际未终止；
+3、
+
+rest高可用测试结果：
+--------------------------------------
+测试场景：
+1、在web端创建机器人、新建流程、切换页面、创建任务，停止其中一个rest服务；(通过nginx查看正在访问哪台服务器就停止哪一台)   --PASS
+2、在web端创建机器人、新建流程、切换页面、创建任务，重启其中一个rest服务；(通过nginx查看正在访问哪台服务器就重启哪一台)   --页面卡顿
+4、测试窗聊天过程中，停止其中一个rest服务；  --Fail, 无法收到机器人回复，再次点击测试窗提示"连接断开"；
+5、
+
+
+问题：
+1、负载均衡环境上，两台rest，其中一台重启会导致页面操作延迟(机器人管理列表无法加载超时); <重启后的那台服务器日志报错2020-07-10 12:55:34>
+2、测试窗聊天过程中，停止其中一个rest服务,聊天被终止，收不到机器人回复；  刷新浏览器后可用
+
+
+bot-engine高可用测试结果：
+--------------------------------------
+测试场景：
+1、测试窗聊天过程中，停止一个botengine服务； --FAIL
+2、保持两个botengine启动，外呼过程中，停止一个botengine服务，体验通话效果； --FAIL
+3、保持一个botengine启动，外呼过程中，将其中已停止的botengine服务开启， 体验通话效果；  --FAIL
+
+问题：
+1、测试窗聊天过程中，停止其中一个botengine服务,聊天被终止，收不到机器人回复；  运行中的botengine日志报错；
+2、外呼过程中，停止一个botengine服务，机器人不放音，通话不挂断；手动挂断后PDS并发未释放； 通话记录中看到的通话状态为空、通话时间为0；    
+3、外呼过程中，将已停止的botengine服务开启，机器人不放音，通话不挂断； 手动挂断后PDS并发未释放； 通话记录中看到的通话状态为空、通话时间为0；      
+4、
+
+
+pds高可用测试结果：
+--------------------------------------
+测试场景：
+1、停止一个pds服务，给该pds上正在执行的任务送号；   --FAIL
+2、停止一个pds服务，终止任务(一个在该pds正在执行，一个是另一台正在执行)；  --FAIL
+3、
+
+
+问题：
+1、停止一个pds服务，给该pds上正在执行的任务送号后不外呼，但是会生成空的通话记录(通话时长为0和通话状态为空)；
+2、停止一个pds服务，终止任务(任务在该pds上执行)，任务状态变为已终止，而不是已完成；
+3、
+
+
+3、当导入大量号码进行呼叫时，生成的通话记录中呼叫时间和实际不一致；
+
+自学习平台：
+ 1、新建的初检任务-任务详情中，初检时间应默认为空(实际均为创建初检任务时间)；
+ 2、新建的初检任务-任务详情中，本轮电话质检应该为空(实际均为无效)；
+ 3、任务详情中，只对其中一项任务初检后，列表中所有任务的初检人均被写入()；
+ 4、对话初检列表翻页后搜索条件失效；
+ 5、搜索所有质检状态数据时页面报错"请求参数格式错误";
+
+ 6、对话初检页面，初检和质检应统一为一个名称；初检(质检)状态也应统一为一个名称；
+ 7、对话初检首页，机器人条件清空后再次搜索，页面报错"";
+ 
+ 8、开始初检-意图质检，选择正确意图页面搜索按钮无效；
+ 9、对部分通话记录，开始初检-意图质检，命中意图显示为"--";
+10、开始初检-意图质检，选择正确意图页面显示的意图不完整(应显示机器人下所有意图)；
+
+11、当初检任务只有一条通话记录时，质检时单击"下一通"按钮无响应；
+12、进入对话初检页面延迟明显(默认查询到10条数据)；
+13、任务中所有通话全部初检完成后，状态仍是"初检中"；
+14、对话初检页面，质检状态搜索条件缺失"未初检"；
+15、对话初检页面，质检状态设置为全部无法查询到已完成的任务；
+
+16、对话复检-任务详情，表头"是否初检"有误，应为"是否复检";
+17、对话复检-任务详情，复检时间默认应为空；
+18、复检完成后复检时间未更新；
+19、对话复检页面，"质检状态"搜索条件无效；
+ 
+
+
+1、搜搜；
+2、通过未初检条件查询无效；
+3、manager租户状态和操作中的启用/禁用按钮不对应；
+
+4、启用之后租户状态均变成正常(应结合时间来做判断)；
+5、新建一个快过期的租户，列表中看到的租户状态是正常；
+
+6、对方是否
+
+2015031400000011000000000000001012345620200720142030
+2015031400000011000000000000001012345620200720142030
+ 20150314000000110000000000000010:20200720142030
+MjAxNTAzMTQwMDAwMDAxMTAwMDAwMDAwMDAwMDAwMTA6MjAyMDA3MjAxNDIwMzA=
+MjAxNTAzMTQwMDAwMDAxMTAwMDAwMDAwMDAwMDAwMTA6MjAyMDA3MjAxNDIwMzA=
+sdasdsdasddfsf对方水电费第三方的发生的范德萨dfsdf
+
+String str = "${appid}" + ${apptoken} + time;
+
+cxczxcdfdsfdfsfdfsf防守打法
+
+{"appid":"${app_id}","bot_id":5857,"user_id":66,"task_id":"15${__RandomString(19,0987654321,)}","task_name":"测试${__RandomString(6,0987654321,)}","task_desc":"","start_date":"${__timeShift(yyyy-MM-dd HH:mm:ss,,,,)}","end_date":"${__timeShift(yyyy-MM-dd HH:mm:ss,,PT30S,,)}","max_concurrent":10,"min_concurrent":1,"isrecord":1,"disnumber":"4022000001","caller":"4022000001","call_policy":[{"type":0,"policy":"{\"policy_type\":0,\"policy_date\":\"21:00:00,23:59:59\",\"policy_name\":\"夜间禁呼\"}"},{"type":0,"policy":"{\"policy_type\":0,\"policy_date\":\"00:00:00,09:00:00\",\"policy_name\":\"晨间禁呼\"}"}],"num_dir":"/app/nums/${app_id}"}
+
+184689
+1、送号接口响应错误；
+B6B2B2A825B9E196C8F404DF5A161CC6
+
+String data = new sun.misc.BASE64Encoder().encode(("${appid}" + ":" + time).getBytes());
+
+
+在压测环境验证，目前遇到问题如下:
+1、一台IVR配置4台cmserver和clpms，ivr向cmserver请求不平均问题（设置10路并发分别查看4台服务器cm均有日志）；---已解决；
+2、目前只能使用一台IVR进行压测，启动第二台IVR报错：不能从连接池获取资源；---未解决；
+3、设置并发600，实际并发在580左右；---未解决；
+4、1台IVR,设置并发600，压测10分钟，抽检10通录音，查看录音大小只有1KB；---未解决；
+5、1台IVR开启，设置并发10，模拟送号20通后停止送号，日志提示只挂机10通；---未解决；
+
+
+压测计划如下：
+第一步：搭建符合要求的性能测试环境，主要是搭建1200路的asr环境(现有集群可复用应用、数据库环境)，需要申请授权1200路的asr和20台配置为20C72G的服务器。需要德哥和鑫哥协助，完成时间请二位确认。
+第二步：执行压测并给出报告，计划用时：2天
+
+风险：在现测试环境中并发50路(共70路asr)，媒体日志报错”mrcp session not opened after 5000 ms”,该问题已同步给森总；1200路压测有出现该问题的可能
+
+
+1、pds资源未释放，实际发送的路数少于显示的路数；
+2、tts故障也会导致并发路数上不来；
+3、
+
+
+1、开始初检完成后应返回到对话初检首页，目前是返回到任务详情列表；
+2、ASR质检结果表中通话时间精度错误，只需要精确到秒；
+3、复检列表中，初检人/复检人字段值应保持统一；
+4、复检时应显示初检的结果；目前只有通话是否有效保留了值；
+5、
+
+
+北京信软
+要求
+linux基础：
+功能：
+接口：
+广发现场测试人员类似
+
+1、自我介绍；
+2、就简历中项目提问；
+   
+3、测试相关理论；
+   软件开发模型；
+   测试阶段；
+   测试用例设计方法
+   测试流程；
+   bug生命周期；   
+   
+4、基础知识；
+   Linux命令：   
+   mysql:
+   http、tcp协议：
+   脚本/编程语言：
+   Jmeter熟悉程度
+   
+5、提问环节
+   
+结果：
+
+军总，这是这5几个人的面试情况：
+徐振浩  离职状态，功能和接口都不错，Linux命令也可以；      
+靳朝飞  离职状态，功能和接口都不错，Linux命令也可以； 
+刘义伟  离职状态，功能和接口都不错，Linux命令了解不多；   
+陈兵    离职状态，功能和接口测试一般，Linux命令了解很少;  
+冯夏南  已经找到工作；
+
+
+1、自学习
+
+1、web用户和manager用户超过10天不登录，账户被清除；
+2、web用户和manager用户连续6次输入密码错误，账户被锁定；
+3、用户被锁定后再次登录不应提示"用户名或密码错误"；
+4、修改用户新密码为"Qwe123!@#"提示"密码过于简单"；
+5、修改用户密码，旧密码不应明文显示；
+6、manager端修改密码，提示语多了":"；
+7、manager端用户被密码被重置后(或新用户首次登录)登录，应强制修改密码；
+8、web账号被禁用后登录应提示"您的账号已禁用，请联系销售"
+
+1、十天未登陆的用户没有从系统中清除，仍可登陆；
+武汉容联云通信息技术有限公司
+
+73300480
+
+
+79994880
+123abc!
+
+69814784
+13761086190
+新密码：Qfdfdf1!3@4#sd*d&^sdsQ
+
+http://192.168.179.125/
+
+
+1、manager端连续输入6次错误密码，后面再输入正确密码应不让登陆；
+2、manager端连续输入6次错误密码，后面再输入密码登陆时提示语不明确；
+3、manager端新增用户提示两次密码不一致，实际一致；
+4、修改密码
+5、清理缓存的权限勾选不上；
+6、导出数据没有权限；
+7、
+
+
+
+
+Zhang44trtrtrtr*&
+
+
+
+张科 8月工作量(共23天)
+-------------------------
+广发电催项目压测：17天
+5.0.1项目自学习模块测试：3天
+兴业银行项目安全测试：2天
+
+
+升级方案：以下所有.zip包均包含在9090升级包.zip中：
+(一定要备份后再替换)
+1，解压com_web-3.0.9.zip 替换/app/aicall-web_91001/bin/WEB-INF/classes/下的com文件夹；
+2, 解压dist-2.2.16.zip替换/app/aicall-web_91001/下的dist文件夹；
+3，解压com-manager.2.0.17.zip 替换/app/aicall-manager_93001/bin/WEB-INF/classes/下的com文件夹；
+4，解压static-manager.2.0.17.zip 替换 /app/aicall-manager_93001/bin/下的static文件夹；
+5，解压views_manager.2.0.17.zip 替换 /app/aicall-manager_93001/bin/WEB-INF/下的views文件夹；
+6，version-manager2.0.17.properties version-web.3.0.9.properties文件是后端升级版本信息文件，替换原文件
+
+
+
+解决问题：
+1，修复web端和manager端水印显示问题 以及流程编辑页面的水印问题
+2，修复manager端弹出的修改密码弹框渲染问题
+3，修复了用户隔离问题
+
+
+192.168.180.129
+
+bpEFEzTd+Yo=
+bEvVqZ69A9DxNwNy9bDDCZf+zYNVgxLw
+
+ytx888yun
+
+
+
+1、黑名单有效期显示有问题；自动将拨打过的号码移入黑名单，有效期实际只到当天24时，显示是到次日24时；
+2、
+
+
+cpu_used=$(top -b -n1 | fgrep "Cpu(s)" | tail -1 | awk -F'us,' '{split($1, vs, ":"); v=vs[length(vs)];sub(/\s+/, "", v);sub(/\s+/, "", v); printf "%s", v; }')
+
+
+
+升级步骤：
+1、备份原jar包（拷贝到其他目录），aicall-rest_94002/bin/WEB-INF/lib/aicall-common-2.6.0.jar
+2、删掉aicall-rest_94002/bin/WEB-INF/lib/aicall-common-2.6.0.jar；
+3、将新的jar包放入目录icall-rest_94002/bin/WEB-INF/lib/，重启rest
+
+
+api_num	api_type	api_name	case_Num	test_purpose	priority	url_path	method	content_type	parameters	expect_code	expect_value
+
+
+
+1、升级dist.zip
+备份再删除/app/aicall-web-resource_98001/dist文件夹；拷贝新的dist.zip,解压后将原dist/static/config.js覆盖新的；
+2、升级com.zip 
+备份再删除aicall-rest_94002/bin/WEB-INF/classes/com文件夹；拷贝新的com.zip,解压；
+3、升级jar包
+备份再删除aicall-rest_94002/bin/WEB-INF/lib/aicall-core-2.12.0.jar;拷贝新的aicall-core-2.12.0.jar
+4、重启rest服务
+
+26.175/26.178
+
+
+
+更新9月27日压测结果如下(调整云小蜜redis淘汰策略后):
+时间段：9-26 22:30~9-27 13:53
+时长：15小时35分钟
+结果：压测启动12小时后，ivr报调云小蜜返回500
+
+ivr日志截图：
+模拟应答数量变化曲线：
+
+
+
+activemq
+
+
+
+
+${__RandomFromMultipleVars(ask_method_1|ask_method_2|ask_method_3|ask_method_4|ask_method_5,)}
+
+
+{"model_id":128,"model_name":"兴业催收银行","model_type":"nlu","model_alg":"textcnn","trade_id":2,"version_id":77,"version_domain":"{\"modelPath\":\"kdJR-bank-兴业银行催收项目-intent-training-20200731.pb\",\"vocabPath\":\"vocab.txt\",\"labelPath\":\"label.txt\"}","dataset_id":128,"testing_id":129}
+
+
+
+{\"modelPath\":"kdJR-bank-兴业银行催收项目-intent-training-20200731.pb\",\"vocabPath\":\"vocab.txt\",\"labelPath\":\"label.txt\"}
+{\"modelPath\":\"bc.pb\",\"vocabPath\":\"vocab.txt\",\"labelPath\":\"label.txt\"}
+
+
+
+
+model压测报告：
+
+9月工作量(23天)
+1、上海兴业银行项目    6天 
+2、上汽财务项目      2天
+3、广发电催项目  12天
+4、座席辅助项目  1天
+5、5.0项目(model压测) 2天
+
+
+117.22服务器上root账户执行命令:mount -t nfs 21.96.33.201:/home/ketian/app/zhangke/count22 /userhome/ketian/app/zhangke/count22
+117.23服务器上root账户执行命令:mount -t nfs 21.96.33.201:/home/ketian/app/zhangke/count23 /userhome/ketian/app/zhangke/count23
+
+
+
+
+1、manager端运行定时任务，弹出不明提示；
+2、
+
+DROP TABLE IF EXISTS `case_interface`;
+CREATE TABLE `case_interface` (
+	`id` INT ( 2 ) NOT NULL AUTO_INCREMENT COMMENT '用例序号',
+	`name` VARCHAR ( 128 ) NOT NULL COMMENT '接口名称',
+	`level` INT ( 2 ) DEFAULT NULL COMMENT '执行优先级,0表示BVT',
+	`request_method` VARCHAR ( 4 ) DEFAULT NULL COMMENT '请求方法:POST、GET，默认是POST',
+	`request_url` VARCHAR ( 128 ) DEFAULT NULL COMMENT '接口地址，直接使用http开头的详细地址',
+	`request_header` text COMMENT '请求头',
+	`request_params` VARCHAR ( 256 ) DEFAULT NULL COMMENT '请求参数',
+	`result` text COMMENT '接口返回结果',
+	`code_to_compare` VARCHAR ( 16 ) DEFAULT NULL COMMENT '待比较的Code值，默认returncode',
+	`real_code` VARCHAR ( 16 ) DEFAULT NULL COMMENT '接口实际返回code值',
+	`expect_code` VARCHAR ( 16 ) DEFAULT NULL COMMENT '接口期望返回code值',
+	`result_code_compare` INT ( 2 ) DEFAULT NULL COMMENT 'code比较结果，1-pass,0-fail,2-无待比较参数，3-比较出错，4-返回包不合法，9-系统异常',
+	`expect_params` VARCHAR ( 256 ) DEFAULT NULL COMMENT '接口比较参数集合，用于比较参数的完整性',
+	`real_params` text COMMENT '接口实际返回参数',
+	`result_params_compare` INT ( 2 ) DEFAULT NULL COMMENT '参数完整性比较结果，1-pass，0-fail，2-获取参数集错误，9-系统异常',
+	`case_status` INT ( 2 ) DEFAULT 0 COMMENT '待比较的Code值，默认returncode',
+	`create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+	`update_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+PRIMARY KEY ( `id` )
+) ENGINE = INNODB AUTO_INCREMENT = 1 CHARSET = utf8 COMMENT = "接口用例表";
+
+
+昨天晚上云小蜜redis调整为15g后压测2100路发现以下几个问题：
+1、通话记录入库问题，表aicall_ivr_record数据缺失。调用云小蜜返回错误导致，如下日志
+2、在21:30:00~23:59:59时间段，pds送号很慢，在1000~1500之间，零点后pds送号恢复。原因不确定，怀疑是pds性能问题
+3、aicall_ivr_record表中数据少于aicall_call_record表。调用云小蜜错误，及ivr对少量通话未收到hungup命令
+3、压测结束后ivr服务有session 资源未释放。ivr对少量通话未收到hungup命令
+
+如下是模拟应答变化曲线。
+
+https://wenku.baidu.com?fr=tieba
+
+
+
+
+
+rm -f result.csv
+
+while :
+
+do
+
+    uptime | awk '{print $(NF-2), $(NF-1), $NF}' >> result.csv
+    sleep 10
+
+done
+
+
+
+上汽财务演示前问题：
+1、是否绑定模型，模型绑定是哪一个；
+2、
+
+
+
+http://192.168.179.125:8060/web/v1/aicall-auth/user/login
+
+http://www.kuaidi100.com/query?type=shentong&postid=234234343434
+
+
+21.96.72.238服务器上root账户执行命令:mount -t nfs 21.96.33.201:/home/ketian/app/zhangke/count24 /userhome/ketian/app/zhangke/count24
+21.96.72.239服务器上root账户执行命令:mount -t nfs 21.96.33.201:/home/ketian/app/zhangke/count25 /userhome/ketian/app/zhangke/count25
+
+
+239: 005056851d10   db0639b0ed22c286b68eaa005e704bf55769
+238: 00505685aa6e   baca15f66b3bd3c6767c4f734cfde3fe9541
+
+
+{"sourceSystem":"ias_admin","user":{"id":8,"name":"8003","userType":"platformAdmin"},"corpId":309,"name":"涂端凤","roleName":["坐席辅助管理员"],"operatorPwd":"55595b96e56db2347e1036ce44e76ddd","id":8,"operator":"8003@zl","username":"8003"}
+
+http://192.168.180.227/ias/navpage
+
+
+
+在服务器上21.96.72.238和21.96.72.239使用root用户执行如下操作：
+一、挂载
+1、先取消挂载昨天给的目录
+执行命令：
+umount /userhome/ketian/app/zhangke/tts_voice
+umount /userhome/ketian/app/zhangke/aicall_record
+
+2、挂载目录：
+执行命令：
+mount -t nfs 21.96.7.166:/home/ketian/app/tts_voice /home/ketian/app/tts_voice
+mount -t nfs 21.96.7.166:/home/ketian/app/aicall_record /home/ketian/app/aicall_record
+
+二、添加定时任务(因磁盘空间不足，需要定时清除压测过程中产生的部分日志)
+执行命令：sudo crontab -e
+最后一行输入 */2 * * * * /home/ketian/app/zhangke/time_clear.sh >> /home/ketian/app/zhangke/time_clear.log，保存
+执行命令：service crond restart
+
+
+您好，这里是容联银行
+我们有一款贷款产品，费率低，放款速度快，推荐给您
+那现在就帮您申请办理一个好吧
+已经帮您办理成功了，感谢您的接听，祝您生活愉快，再见
+
+账号8005      8003
+YTX@cc123
+
+
+[17:30:49:180] [DEBUG] - com.ytx.ias.web.interceptor.jwt.AuthInterceptor.preHandle(AuthInterceptor.java:53) - ***AuthFilter拦截器验证serPath=/agent/sdk/sendTextHandler begin token=cc-gp:eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiJyYW5kb21LZXkiLCJzdWIiOiI4MDAzIiwiZXhwIjoxNjA1MTcyNjk4LCJpYXQiOjE2MDUwODYyOTh9.hNI5lWL2ZvA7ROhgn8vVgQcsXJZ5W-Fi6tglswTFynT5l0mtC7PqzrvnLsJ_XJj_aibjYHcRzyXfb41OjIiEZA ***
+[17:30:49:181] [INFO] - com.ytx.ias.service.agent.SdkValidateScriptService.sendTextHandler(SdkValidateScriptService.java:130) - {"agentId":"8003","callId":"1605086758000","corpId":"309","currTime":1605087049,"messageId":"b4134a4c45ff47d2b49235dda1375f49","msg":"您好，这里是容联银行","position":"seat"}
+[17:30:49:182] [INFO] - com.ytx.ias.service.agent.SdkValidateScriptService.assistOperat(SdkValidateScriptService.java:110) - 1
+[17:30:49:182] [DEBUG] - com.ytx.ias.service.agent.SdkValidateScriptService.sendTextHandler(SdkValidateScriptService.java:133) - 坐席辅助推送坐席消息花费时间：2
+[17:30:49:353] [DEBUG] - com.ytx.ias.controller.ws.SubscribeListener.onMessage(SubscribeListener.java:33) - 指定发送消息给sdk端，消息内容message=msg:{"content":"您好，这里是容联银行","id":"b4134a4c45ff47d2b49235dda1375f49","position":"seat","time":1605087049}
+
+
+
+192.168.180.227 ssh:5522 yun/ytx@123
+
+
+
+
+${__RandomFromMultipleVars(ask_method_1|ask_method_2|ask_method_3|ask_method_4,)}
+
+
+
+
+${__time(,)}
+
+
+aaa123!@#
+
+
+5845955d87bc4af6abe69c1cad244dbe
+
+14:18:36:568
+14:18:35:124
+
+
+docker stop assist
+docker-compose up -d assist
+docker-compose up -d kbm-admin
+
+http://192.168.180.140/ias/navpage
+
+
+
+
+docker-compose -p mysql up -d
+
+
+
+docker-compose up -d elasticsearch1 -f docker-compose-kbm.yml
+
+
+ps -ef | grep vim | grep -v grep | cut -c 9-15  | xargs kill -s 9
+
+
+
+ls -l assist-info.log | awk '{print $5}'
+
+
+jmeter -n -t 座席辅助.jmx -l result.log
+fqjlz3UBAE4pdCLF4ZcR
+
+${__RandomString(20, "abcdefghijklmnopqrstuvwxyz0987654321",)}
+
+
+{"title":"测试02","similars":["相似问22"],"answerList":[{"answerType":1,"channelCode":["0"],"answers":[{"answerText":"答案022","answerHtml":"<p>答案022</p>","attachmentList":[]}]}],"rels":"","effectiveType":1,"classify":45,"corpId":"309","menuId":9}
+
+429007898765456789
+429007744424309508
+
+
+2020-11-17 17:26:59 从服务器上下载日志文件
+2020-11-17 17:27:25 用户耗时列表(单位秒):
+[3.402, 3.091, 3.538, 3.381, 1.517, 2.996, 3.533, 1.168, 3.608, 3.112, 3.116, 3.116, 2.997, 1.846, 3.269, 3.439, 3.201, 2.028, 2.74, 3.114, 3.971, 3.493, 3.07, 2.757, 2.538, 2.729, 3.381, 2.679, 2.465, 2.291, 2.155, 3.879, 2.242, 2.816, 2.318, 2.0, 1.945, 2.375, 2.346, 3.82, 4.012, 3.157, 1.883, 2.915, 3.109, 2.925, 3.207, 2.179, 2.246, 3.567, 1.764, 2.186, 3.744, 3.065, 2.352, 2.783, 3.413, 2.056, 1.742, 2.801, 4.039, 2.891, 3.846, 2.618, 1.491, 3.083, 3.839, 2.421, 3.193, 3.532, 3.483, 3.565, 2.45, 2.97, 2.894, 3.537, 3.865, 2.724, 3.583, 2.976, 3.482, 1.66, 3.239, 1.996, 3.919, 2.676, 3.914, 1.644, 3.412, 2.26, 3.449, 3.306, 2.401, 3.371, 3.488, 3.381, 2.62, 3.311, 3.338, 3.273]
+2020-11-17 17:27:25 响应成功用户数:100
+2020-11-17 17:27:25 平均耗时：2.92, 最小耗时：1.168, 最大耗时：4.039
+
+2020-11-17 17:29:37 平均耗时：3.61, 最小耗时：0.387, 最大耗时：4.603
+
+
+1、TTS文本转语音失败，未生成音频文件或生成了空的音频；
+2、保存录音报error；
+3、若有一台pds或ivr发生宕机session资源会永久存在redis，导致并发量上不去；
+4、若有一台clpms发生宕机会导致ivr、cmserver、pds session资源永久存在，导致并发量上不去；
+5、pds启动时报错；
+
+
+
+(100并发)
+思路导航：
+平均耗时：1.55, 最小耗时：0.905, 最大耗时：1.921
+
+知识推荐：	  
+平均耗时：1.72, 最小耗时：0.781, 最大耗时：2.337
+
+舆情词：
+
+
+违禁词：
+
+平均耗时：1.26, 最小耗时：0.785, 最大耗时：1.921		
+			
+				
+				
+				
+/app/zhangke/performance/callid.csv								
+['1606110128015', '1606110128075', '1606110128099']				
+				
+上周五性能测试100并发出现错误率的问题，今天分析了下日志，怀疑是recommendengine从redis读数据时候出错。				
+(1)assist收到请求向redis写入消息没发现问题；	【验证方法：停止recommendengine服务，发起测试后，从redis从读到的结果intentQueue长度为100，且查看到intentQueue各数据均正常】			
+(2)recommendengine读取监听asr队列数据阶段：从recommendengine日志看有少量callid的消息未被读取到；
+另外，耗时较长的环节如下日志所示，基本在2s以上。
+
+
+同步座席辅助以下五个场景的性能结果：				
+(100并发，单位：秒)
+思路导航：
+平均耗时：0.75, 最小耗时：0.403, 最大耗时：1.067
+
+知识推荐：	  
+平均耗时：1.36, 最小耗时：0.187, 最大耗时：1.556
+
+舆情词：
+平均耗时：0.32, 最小耗时：0.131, 最大耗时：0.58
+
+违禁词：
+平均耗时：0.36, 最小耗时：0.093, 最大耗时：0.611
+
+自动填单：
+平均耗时：0.08, 最小耗时：0.021, 最大耗时：0.145
+
+100并发最新recommendengine除自动填单外其他场景未发现错误率，响应时间明显变慢	
+
+/ias-assist/agent/sdk/endTest/${callid}
+
+${server_ip}
+
+
+1606289466099
+
+
+1、有流程的机器人不应能导入其他json数据(非流程数据)；
+2、导入成功的流程没有立即展示，需要点击搜索按钮或重新进入流程页面才能查看到；
+3、导入格式错误的json数据应提示导入失败；
+4、导入后的流程删除后，无法再次导入；
+
+6、导出的流程数据文件命名应规范；()
+7、号码模板中的金额为非数字字符时导入号码应给与对应提示，不应弹出java异常；
+8、统计报表导出按钮不可用；
+5、报表中导出的数据是以json格式保存，可读性太差；
+
+zhangke@yuntongxun.com
+
+
+(1)测试环境需要cc、cc和AI对接配置、ivr是共用还是独立；
+关于需求：
+(2)user-to-user字段指的是什么，AI记录callid保存到aicall_call_record是指通话记录保存？
+(3)Transfer是转人工时发出的命令，refer命令什么时候用到；【不能进行实际的转接操作(转接到CC以后为新的callid，无法对应)而是执行挂机操作】怎么理解
+(4)接口可否不依赖cc单独测试；如果可以单独测试，需要提供接口；接口返回具体哪些内容？
+(5)【由于CC收到挂机信令之后，就会调用REST接口查询转接信息，因此IVR需要在执行挂机指令之前，同步保存通话内容以及转接信息到redis中，供REST获取】
+
+
+
+1、话术流程不完整可以保存、可以上线；    2
+2、数据统计页面无法看到今天的数据；      2
+3、通话记录详情中主叫号码为空；          2
+4、送入的号码文件中货币金额只有两位小数，实际放音时多报了小数(针对同一个合同编号有多个号码的数据)；   1
+5、知识库分类没有默认内置类别；           2
+6、新增知识库分类-同名时，弹出两个相同的错误提示框；     2
+7、新增知识库-标题重复数据时，弹出两个相同的错误提示框；        2
+8、有号码在外呼的时候，任务可以终止；                   2
+9、已呼号码没有被加入黑名单(送号时系统突然卡顿，同一个号码文件连续导入了3次，所有号码均被外呼了3次)       2 
+10、批次号码按照顺序拨打有问题；   2
+
+
+1、通话记录详情中主叫号码为空；
+2、送入的号码文件中货币金额只有两位小数，实际放音时多报了小数(针对同一个合同编号有多个号码的数据)；
+3、新增知识库分类-同名时，弹出两个相同的错误提示框；     
+4、新增知识库-标题重复数据时，弹出两个相同的错误提示框；
+
+
+
+(1)出差到客户现场；
+(2)客户现场UAT；
+(3)汇总客户反馈问题
+
+验证如下问题：
+1、通话记录详情中主叫号码为空；
+2、送入的号码文件中货币金额只有两位小数，实际放音时多报了小数(针对同一个合同编号有多个号码的数据)；
+3、新增知识库分类-同名时，弹出两个相同的错误提示框；     
+4、新增知识库-标题重复数据时，弹出两个相同的错误提示框；
+
+
+验证如下问题：
+
+
+1、希望画布页面组件搜索支持模糊查找；    2
+2、希望送号前知道哪些号码有问题(即将上传号码和拨打号码分开，分两步操作）；        2  
+3、希望一个批次号码呼完后能给个呼完提示或者呼叫进度显示；      1
+4、希望导入的号码放到可以在数据统计报表展示；     2
+5、希望统计报表中数据可以导出；          2
+6、希望机器人可以删除、复制；     2
+7、希望对黑名单类型可以进行选择，以号码入黑名单或以合同编号(同一个合同编号下的号码)进入黑名单；      2
+8、希望对呼通后未接听的号码能够连续呼叫两遍；      2
+
+
+
+
+
+11月工作量(160小时)
+---------------------------
+广发项目： 24小时
+座席辅助： 72小时
+兴业银行项目：16小时
+上汽财务：48小时
+
+
+rm -f load.csv
+
+while :
+
+do
+
+    uptime | awk '{print $(NF-2), $(NF-1), $NF}' >> load.csv
+    sleep 5
+
+done
+
+
+
+
+
+
+企业ID : 85306624
+用户：18810951032
+密码：123abc!
+
+
+"aicall031|20150314000000110000000000000010|566|812"
+
+
+
+1、修改密码失败，仍弹出保存密码的提示；
+2、信息收集组件，使用默认实体收集不到数据；(需要模型支持)
+3、信息收集组件，第一次收集不到数据就跳到下一槽位收集，次数；
+4、信息收集组件，两个槽位实体对应正则有重叠，收集第一个槽位时填充的是最后一个槽位；
+5、自学习权限需要屏蔽；(票交所不需要自学习平台功能)
+6、外呼不挂机，空指针异常；
+7、任务管理-新建任务，外显号码设置下拉选项为空，通过去修改mysql数据库aicall_carrier_num表中添加数据生效；
+8、拉取通话记录异常
+
+
+同步票交所aicall问题如下：
+1、信息收集组件，使用默认内置实体收集不到数据；(需要模型支持)
+2、外呼结束后不挂机，ivr日志报java空指针异常；
+3、cc对接aicall，调用通话记录查询接口异常； 
+另外，需要在manager端屏蔽自学习模块权限
+
+4、进入登录页面日志有报错；(目前没发现对功能造成影响)
+
+AI问题：
+1、信息收集组件，使用默认内置实体收集不到数据；(需要模型支持)
+2、外呼结束后不挂机，ivr日志报java空指针异常； (今天提供的ivr包无法外呼，错误日志已发在群里)
+3、rest调用pds异常；
+
+
+
+座席辅助问题：
+1、知识库批量导入数据卡死(偶现)；
+2、知识库审核-批量发布后，待审核数量不为0；
+3、页面中"机器人"文字应改为"知识库",票交所不使用机器人；（德哥说不用解决）
+4、xxl-job日志一直在报错；--(昨天开发已在UAT环境上解决，需要提供解决步骤，由运维同步到生产)
+
+
+5、cc对接座席辅助未集成完成-无法测试；
+6、文本测试发送消息后无法命中意图；
+7、座席辅助用户登出时候报token异常，无法登出；(从F12中看到logout请求的请求头中Authorization为空)
+8、知识库类别有多层目录时，管理端选择机器人时无法使用
+
+座席辅助问题:
+1、知识库批量导入数据卡死(偶现)；
+2、crm对接座席辅助，通话监测和知识推荐不生效；(传参存在问题，如下截图)
+
+AI问题：
+思必驰语音引擎有问题；
+
+同步生产环境上测试智能导航发现的问题如下：
+1、pds日志报redis连接池报错；
+2、pds集群不具备高可用，如一台pds宕机，会有部分任务无法发起外呼；
+3、Aicall双主数据库集群不同步；
+4、一台ivr服务宕机后，当前通话既不放音也不挂机；
+
+
+{"corpId":"${corp_id}","userName":"${username}","password":"${corp_id}"}
+
+username,pwd
+
+知识库
+4：技术
+6：客服
+
+座席：
+139：技术
+137：客服
+137:6, 139: 4
+
+定云向日葵：
+225582656
+0000
+
+呼入客服组:42  135: 42
+呼入技术组:43  136: 43
+
+
+134 
+
+
+1、知识库审核页面需提供编辑知识的功能；
+2、列表数据应按时间降序显示；
+
+new-kbm-knowledges/new-knowledge/_delete_by_query
+
+{"query":{"match_all":{}}}
+
+
+测试的价值定位，以及在这个价值之下的思维逻辑需要跟上软件发展
+的步伐
+
+主动寻求新的测试价值。通过在产品测试过程中获得的数据，
+利用对产品的深入掌握，对测试的深入理解，来拓展新的职能，例如：
+主导产品的指标改进，
+在代码管理和发布平台（CI、沙箱、灰度）中内建质量标准，
+主导产品集成，
+主导用户体验分析，
+用验收用例实例化客户需求，
+主管验收测试活动等。
+
+
+测试用例总数：199
+bug总数：39
+
+
+tcpdump tcp -i ens32 -t -s 0 -c 100 -w target.cap
+
+tcpdump tcp -t -s 0 and tcp port 9500 -w target1.cap
+
+
+
+
+33.201：模拟应答 
+7.154：cmserver
+
+
+
+1、测试设计技术 是从特定的测试依据中得到的测试用例来实现特定测试覆盖的标准化方法；
+标准化方法：从测试依据中得到测试用例，用来实现测试覆盖
+   能解决的问题： 提高测试覆盖率、有效减少测试用例数量、避免测试用例冗余
+2、
+
+按照
+
+课程管理：
+1、创建课程-不应能上传多个同名文件； 1 
+3、创建课程-课程说明，当前字符数/最大可输入字符数遮挡说明文字；   1
+4、意图分值可输入小数，保存后再次编辑时被取整，导致自动生生成的评分项总分错误；  
+
+练习任务：
+1、练习周期-时间范围，开始和结束时间秒位显示不全；
+2、练习次数输入不合法格式，不应能保存；
+3、指定部门全选中后，导入到选择区域时显示不全；
+4、练习任务列表缺少练习号列；
+
+考试任务
+1、考试任务-列表缺失考试号列；
+
+关键词
+1、上传文件中分类有重复时导入应提示"列表中分类存在重复，请调整后重新上传",目前可导入成功
+2、已被练习/考试中的课程引用，且练习/考试的状态为“进行中”，关键词仍允许被编辑；
+
+['HTMLTestRunner', 'MultipartEncoder', 'TestBase', 'TestSmoke', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'json', 'unittest']
+
+
+http://192.168.180.227/ias/   8006 YTX@cc123
+
+
+座席辅助地址:
+http://192.168.180.140/ias/navpage
+
+用户名/密码：8005/YTX@cc123
+
+usermod -a -G root,postdrop yun
+
+
+未拨打-导入时间显示不正确；
+未拨打-时间查询条件不生效；
+用户接通后立即挂断，pds不会收到hangup命令，导致任务详情中的拨打数据更新错误
+导入一条号码在未拨打中显示了5条；
+
+
+1、有3.55万条号码(共上传179.75万)处于排队中；    --零点时旧任务结束导致，但号码状态status应更新为5（任务达到结束时间）
+2、在aicall_record表中有387条数据(压测共生成1762000条数据)，recordurl字段值为null；这个问题已经同步过很多次，一直没有解决；   --初步推测是ivr性能问题；
+其中一通话cmserver日志如下：(这通话在cmserver端已结束，但在ivr+pds没有结束)
+
+
+
+3、以下是模拟应答变化曲线，总体平稳；最右侧波动较大是由于pds分发存在少量不均衡；其他波动是由于模拟应答提前挂机导致；
+
+
+任务起止时间: 00:00:00~23:59:50   压测结束后部分号码处于"排队中"，而不是"任务到达结束时间"
+单批次号码数：50 rest  task.batch.size  
+线程最大数: 16  ivr order.queeu.size  
+云小蜜：redis内存15g 
+每次送号:2500
+次送号间隔：50s
+模拟应答音频文件时长：1分7s
+
+总送号数：2245000
+    呼叫成功数：2231917
+    因任务到达结束时间未呼号码：13083
+生成通话记录数：2231917
+    异常通话数：2952
+    正常通话数：2228965
+详细交互记录数：6704605 = 17710 + 6686895
+    异常交互记录：17710
+	正常交互记录：6686895 = 2228965 * 3
+recordurl为空数据：180
+callid重复数据：0
+redis aicall004|appid值：0
+ivr调云小蜜出现超时：压测启动1小时内出现少量
+随机查看两台媒体零点之后的日志中未查找到写录音文件报错error writing相关日志段；
+
+aicall:list:reqCcor
+
+http://192.168.182.102/ias/   1001 YTX@ias123
+
+
+
+
+/app/jdk1.8.0_131/bin:/app/jdk1.8.0_131/jre/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/app/mysql/bin:/app/bin
+
+/app/jdk1.8.0_131/bin:/app/jdk1.8.0_131/jre/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/app/mysql/bin:/app/bin
+
+
+{"botId":${bot_id},"flowId":${flow_id}}
+
+
+mount -t nfs 192.168.180.129:/app/tts_voice /app/tts_voice 
+mount -t nfs 192.168.180.129:/app/ivr_voice /app/ivr_voice
+mount -t nfs 192.168.180.129:/app/aicall_record /app/aicall_record
+
+取消挂载：umount -l dir
+
+=(B2-F2-K2-N2)/B2*100
+
+rm -f *.nmon && rm -f result.csv && ps -ef|grep nmon | awk '{print $2}'| xargs kill -9 
+./nmon -t -f -s 1 -c 3600
+
+1分钟负载变化曲线
+
+
+
+5.1.1压测：
+-----------------------------------------------------------
+1、压测模块：botserver、bot-engine、model
+2、服务器硬件配置：8c/16G，服务器带宽：1000Mbps
+3、部署方式：单点(1台服务器)
+4、性能指标：并发数(1000)、发送消息总量(100万条)、错误率(0%)、tps(待测)、响应时间(待测)、服务器CPU和内存使用率(<=60%)
+5、压测范围(高频调用接口信息需要开发同学给出)；
+6、因模型对性能影响很大，压测model时用到的模型及模型版本；(需要开发同学给出)；
+
+
+v5.1 aicall压测模块及接口
+-------------------------------------------
+1、botserver接口： 获取机器人列表、获取流程列表；  协议类型：http
+接口详情：http://wiki.yuntongxun.com/pages/viewpage.action?pageId=256082141
+
+2、botEngine接口: 开启会话、触发会话、终止会话；   协议类型：TCP
+接口详情：http://wiki.yuntongxun.com/pages/viewpage.action?pageId=241918568
+
+3、bot-model接口：意图分类、实体抽取、情感计算；   协议类型：http
+接口详情：http://wiki.yuntongxun.com/pages/viewpage.action?pageId=241920105
+
+4、ivr接口：启动会话、应答事件、挂机事件    协议类型：TCP
+接口详情：http://wiki.yuntongxun.com/pages/viewpage.action?pageId=92930173
+
+5、pds接口：送号接口     协议类型：http
+wiki上没给出接口详情，需要测试人员自己抓取
+
+压测环境：
+-------------------------------------------
+1、v5.1 aicall压测服务器（2台）：
+   192.168.180.81    8c/15G   centos7.4  部署rest、pds、ivr、botserver、bot-Engine、bot-model、cmserver、clpms    
+   192.168.180.129   5c/23G   centos7.7  部署mysql,redis,mq等 
+   
+2、智能陪练压测服务器(1台)：
+   192.168.182.102   8c/15G   centos7.4  应用模块，mysql、redis等
+
+
+/v1/aicall-web/bot/flow/save-flow
+\"flowId\":(.*?)\}
+
+{"flowId":null,"botId":${bot_id},"flowName":"teste","callType":0,"flowDesc":"","appId":"${app_id}"}
+
+
+
+�{"appid":"20150314000000110000000000000010","botid":6067,"varjson":"{\"sex\":[\"先生\"],\"name\":[\"张科\"]}","words":"你好","cmd":"startengine","sender":"9f03f0e28ce87fd61d4ed953bf0f28b3"}
+
+000000c37b226170706964223a223230313530333134303030303030313130303030303030303030303030303130222c22626f746964223a363036372c227661726a736f6e223a227b5c227365785c223a5b5c22e5bca0e7a7915c225d2c5c226e616d655c223a5b5c22e58588e7949f5c225d7d222c22776f726473223a22e4bda0e5a5bd222c22636d64223a227374617274656e67696e65222c2273656e646572223a223966303366306532386365383766643631643465643935336266306632386233227d
+
+�{"appid":"20150314000000110000000000000010","botid":6067,"varjson":"{\"sex\":[\"Sir\"],\"name\":[\"ZhangKe\"]}","words":"Hello","cmd":"startengine","sender":"9f03f0e28ce87fd61d4ed953bf0f28b3"}
+
+�{"appid":"20150314000000110000000000000010","botid":6067,"varjson":"{\"sex\":[\"张科\"],\"name\":[\"先生\"]}","words":"你好","cmd":"startengine","sender":"9f03f0e28ce87fd61d4ed953bf0f28b3"}
+
+if((chars[i] >= 'u4e00' && chars[i] <= 'u9fa5')||(chars[i] >= 'uf900' && chars[i] <='ufa2d')){
+         	log.info("是否中文 {}", chars[i]);
+         }
+
+并发路：1100路
+集群大小：8c/16G
+四台媒体、四台应用(2个rest、4个ivr、4个pds)、小蜜、tts使用已有；
+数据库和redis直接使用：已有的单点；
+
+软件版本：pds、ivr、
+
+9f03f0e28ce87fd61d4ed953bf0f28b3
+
+000000407b22636d64223a2273746f70656e67696e65222c2273656e646572223a22${sessionid_sex}227d
+
+周一：pds bcs;
+
+最快下周三下班前给测试报告；
+
+
+应用服务器：155/166
+媒体服务器：154/214
+
+
+
+1、rest启动未输出日志，tomcat日志如下，跟浩明沟通，广发客服项目rest功能被改造；本次压测可不部署rest，请确认；
+2、需要提供bcs部署步骤，主要是提供配置文档；
+3、clpms启动后没有日志输出，日志目录下只有以下两个文件：
+4、pds/ivr部署后启动正常；
+
+
+UPDATE user SET Password = password('123456') WHERE User = 'root'
+
+update mysql.user set authentication_string=password('123456') where user='root';
+
+
+
+import java.io.File;
+
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+
+String number_path = vars.get("number_path");
+File xlsFile = new File(number_path);
+		
+WritableWorkbook workbook = Workbook.createWorkbook(xlsFile);
+WritableSheet sheet = workbook.createSheet("sheet1", 0);
+
+sheet.addCell(new Label(0, 0, "持卡人代号"));
+sheet.addCell(new Label(1, 0, "手机号"));
+sheet.addCell(new Label(2, 0, "姓名"));
+sheet.addCell(new Label(3, 0, "性别"));
+sheet.addCell(new Label(4, 0, "卡号后四位"));
+sheet.addCell(new Label(5, 0, "未被对消余额"));
+sheet.addCell(new Label(6, 0, "未被对消余额的最低还款额"));
+sheet.addCell(new Label(7, 0, "币种"));
+sheet.addCell(new Label(8, 0, "用户客群(是否柔性入组)"));
+sheet.addCell(new Label(9, 0, "还款到期日"));
+sheet.addCell(new Label(10, 0, "机器人标识号"));
+sheet.addCell(new Label(11, 0, "账单金额"));
+sheet.addCell(new Label(12, 0, "账单日对应的最低还款额"));
+sheet.addCell(new Label(13, 0, "声学模型"));
+sheet.addCell(new Label(14, 0, "当日对应拨打次数"));
+sheet.addCell(new Label(15, 0, "拨打时间"));
+sheet.addCell(new Label(16, 0, "卡号"));
+
+
+for(int count=1; count<=100; count++) 
+{
+  int card_id_part = 10000 +  count;
+  sheet.addCell(new Label(0, count, "6225551640803" + Integer.toString(card_id_part)));
+  
+  int phone_number = 10000 + count;
+  sheet.addCell(new Label(1, count, "139714" + Integer.toString(phone_number)));  
+
+  sheet.addCell(new Label(2, count, "name_name"));
+  
+  String sex = "男";
+  if(count%2==0){
+	sex = "女"；
+  }
+  sheet.addCell(new Label(3, count, sex));
+  
+  int last_four = 3000 + count;
+  sheet.addCell(new Label(4, count, Integer.toString(last_four)));
+  
+  sheet.addCell(new Label(5, count, "1000"));
+  sheet.addCell(new Label(6, count, "1000"));
+  sheet.addCell(new Label(7, count, "156"));
+  sheet.addCell(new Label(8, count, ""));
+  sheet.addCell(new Label(9, count, "2021/12/31"));
+  sheet.addCell(new Label(10, count, "容联"));
+  sheet.addCell(new Label(11, count, "5000"));
+  sheet.addCell(new Label(12, count, "500"));
+  sheet.addCell(new Label(13, count, "K2FT"));
+  sheet.addCell(new Label(14, count, "3"));
+  sheet.addCell(new Label(15, count, "2020-12-31 10:30:00"));
+  
+  int card_number_part = 2321 +  count;
+  sheet.addCell(new Label(16, count, "6217002986524658" + Integer.toString(card_number_part)));
+  
+}
+workbook.write();
+workbook.close();	
+
+
+
+log.info("dfsdfsdfsdf");
+
+tcpdump -X -i any 'port 9660' -w test.cap
+tcpdump -X -i any 'port 9550' -w test.cap
+tcpdump -X -i any 'port 9600' -w test.cap
+
+cyj测试外呼
+
+192.168.180.176: rest、botserver、bot-engine         8核/7.6G
+192.168.182.103：mysql、redis、mq                 8核/7.6G 
+192.168.180.82：model      8核/15G
+***.***.***.***: 
+
+1、将近一半的通话是超时结束；
+sip为201数据条数：496737, 查询到的duration字段值均为30左右；
+
+--  可能原因昨天已说明，长话术调tts生成的音频文件有多个，机器人播放其中一个短音频后，等待用户输入，直到超时。
+
+
+2、有少量数据recordurl字段为空；
+--  这是一个老问题，怀疑是ivr性能问题，查了一通话日志，cmserver发送的命令，而ivr日志显示没有立即受到，而是存在很大延迟，ivr发送了hangup命令；日志如下
+
+还有另一个原因导致，如下为cmserver日志，这通话cmserver在向clpms通知录音时报了no media
+
+
+3、模拟应答曲线如下，整体波动较大； -- 原因1和模拟应答提前挂机导致
+ 
+
+
+flowList:  token=40FC5BAC52606F742D892CD73A74CB66
+           appid: 20150314000000110000000000000010
+login: res_header sdk-auth: {"token":"40FC5BAC52606F742D892CD73A74CB66","expires":"10628"}
+       res_body:    "appId": "20150314000000110000000000000010"
+      
+	  
+	  
+1 2 3 4 5 6 9 9 9 10
+
+
+http(TCP)请求的指标计算：
+系统能力：  --需要放在报告里面 
+------------------
+TPS = 每秒服务器处理请求(事务)的数量 = 并发数 / 平均响应时间
+      如：10个请求  耗时0.07s  TPS = 10/0.07  
+响应时间：取90%的响应时间  
+
+ {"statuscode":"000000","cmd":"evt.startengine","sender":"5p7a6b0v4r6wbrkmyh4074jxe1vf6ktr","receiver":"5p7a6b0v4r6wbrkmyh4074jxe1vf6ktr"}
+ 
+服务器能力：
+-------------
+cpu利用率：
+内存使用率：
+磁盘读写：
+网络变化：
+负载变化曲线：
+ 
+ yum -y install gcc gcc-c++ autoconf automake make zlib zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel libffi libffi-devel xz xz-devel
+
+ python3 /app/zhangke/autoCall.py
+
+
+bcs总送号数：979500 = pds外呼号码数(776587) + pds任务终止未呼数(202913)
+pds外呼号码数：776587
+pds任务终止未呼数：202913
+生成通话记录数：776587 = pds外呼号码数
+生成详细通话记录数：2329761 = 生成通话记录数(776587) * 3
+压测结束后在线并发(redis key new|appid|kf001)value值为：0
+压测结束后挂机消息列表长度(redis key rest:callback:kf001:14530)value为：0 
+mysql数据库aicall_call_record表recordurl字段为空数据：0
+mysql数据库aicall_call_record表callid重复数据：0
+压测结束后ivr session count值：0
+
+
+以上数据均与期望结果一致。
+
+
+ from bs4 import BeautifulSoup
+ 
+
+#jbcrypt:$2a$10$DdaWzN64JgUtLdvxWIflcuQu2fgrrMSAMabF5TSrGK5nXitqK9ZMS
+
+/app/zhangke/interfaceTest/runTest.py
+
+
+find /app/bot-engine_98001/logs/ -maxdepth 1 -type f -mtime +7
+
+{"tradeId":null,"botName":"${botName}","status":${status},"limit":19,"start":1,"searchBotType":"{botType}"}
+
+
+mkdir -p /app/ivr_voice
+mkdir -p /app/aicall_record
+mkdir -p /app/tts_voice
+mkdir -p /app/ivr_voice/execute
+mkdir -p /app/ivr_voice/unexecute
+
+在线安装nginx步骤:
+步骤一：安装EPEL存储库，命令：yum install epel-release；
+步骤二：安装nginx包，命令：yum install nginx -y
+
+244：005056940155
+245：00505694802f
+
+mount -t nfs 192.168.176.242:/app/tts_voice /app/tts_voice
+mount -t nfs 192.168.176.242:/app/aicall_record /app/aicall_record
+mount -t nfs 192.168.176.242:/app/ivr_voice /app/ivr_voice
+
+
+scp -P 5522 jdk1.8.0_131.zip root@192.168.176.246:/app/
+scp -P 5522 jdk1.8.0_131.zip root@192.168.176.247:/app/
+scp -p 5522 jdk1.8.0_131.zip root@192.168.176.246:/app/
+
+
+
+1、pds、ivr、cmserver集群分别是通过什么方式实现的；
+2、新建的任务没有执行怎么排查；
+3、多次送号不外呼，怎么排查；
+4、cmserver或clpms宕机后怎么处理；
+5、怎么查看当前呼叫并发数；
+
+
+
+
+rm -f /app/zhangke/aicall-clpms_97003/log/clpms.log.*
+while [ 1 ]
+do
+total_answer=$(cd /app/zhangke/aicall-clpms_97003/bin && ./clpms_cli.sh "show channels count" | awk '{print $1}')
+echo $total_answer>/app/zhangke/count102/answer.csv
+sleep 2
+done
+
+callid:2581-607300EB-B1B0
+
+
+监控脚本和送号脚本在凌晨3:56:02时异常退出，共呼叫30次，每次送号1万条，
+
+600路压测问题如下：
+1、总送号数34次，有3次超时(送号接口请求60s后无响应超时)送号失败；
+2、总送号成功数31次，数据库中aicall_variable_data表总号码量应为31万条，实际为30万条；--tag_id为1398的数据未在表哦找到；
+3、建任务31次，1次失败，返回code 910608；
+4、aicall_variable_data表status=1数据量为：278001，aicall_call_record数据量为278200，两张表数据量不一致；
+
+其他：压测仅持续了不到7小时：监控模拟应答的脚本和送号脚本在凌晨3:56:02时异常退出，可能负载机原因导致，今天更换一台负载机运行压测脚本；
+
+./redis-cli -a ytx888yun keys "aicall002|*" | xargs ./redis-cli -a ytx888yun del
+
+./redis-cli -a ytx888yun keys "aicall034|*|*" | xargs ./redis-cli -a ytx888yun del
+
+
+seq -i 's/'
+
+
+
+
+line = `sed -i '/monitor_hours/=' $filename`
+
+
+line = $(sed -n '/monitor_hours=/=' clear_env.sh)
+
+`sed -i '/monitor_hours/=' clear_env.sh
+
+sed -i '/monitor_hours=/d' clear_env.sh
+
+sed '1i monitor_hours=13' clear_env.sh 
+
+
+
+{"username":"openser","password":"yanshiopenserpass92"
+
+mysql -uopenser -pyanshiopenserpass92     ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ytx@123!'
+
+ grant all privileges on *.* to 'root'@'%' identified by 'Ytx@123!' with grant option
+create user aicall identified by 'Ytxcc123^!';
+grant all privileges on *.* to aicall@'*' identified by "Ytxcc123^!";
+
+192.168.180.210 3306 aicall/Ytxcc123^!     root/Ytx@123!
+
+mysql -h 127.0.0.1 -uaicall -pYtxcc123^!
+mysql -uaicall -pYtxcc123^!
+mariadb -uaicall -pYtxcc123^!
+
+192.168.182.102
+
+a756a0ae52e2542dd7c094e665318eea5651
+
+
+
+
+{"code":"000000","data":{"total":1,"variableErrorNums":0,"blackNumberNums":0,"repeatInfo":{},"overstepNums":0,"successNums":1}}
+
+
+String total = resultJson.get("data").get("total").toString();
+String successNums = resultJson.get("data").get("successNums").toString();
+String overstepNums = resultJson.get("data").get("overstepNums").toString();
+if(total!=successNums){
+log.info("Error: 送号总数和送号成功数不一致,请注意!");
+}
+log.info("送号完成,发送号码数量为:{},实际送号成功数为:{},送号超出最大数:{}", totalPhone,successNums,overstepNums);
+
+
+JSONObject resultJson = JSONObject.fromObject(response); 
+
+最大并发：aicall010|20150314000000110000000000000010
+关闭asr和tts开关：aicall006|2
+
+"{\"appid\":\"20150314000000110000000000000010\",\"botid\":15121,\"asr\":0,\"asr_profile\":\"ali-mrcp2\",\"asr_params\":\"Speech-complete-timeout=500,start-input-timers=true,No-Input-Timeout=60000\",\"asr_grammar\":\"test\",\"asr_corp\":\"ALI_V3\",\"tts\":1,\"tts_corp\":\"ALI_V4\",\"tts_id\":61,\"speed\":0,\"volume\":50,\"tone\":0,\"tune\":0,\"protocol\":\"http\",\"domain\":\"{\\\"sample_rate\\\":\\\"16000\\\",\\\"voice\\\":\\\"aixia\\\",\\\"area\\\":\\\"beijing\\\",\\\"bodyAppKey\\\":\\\"default\\\",\\\"token\\\":\\\"default\\\",\\\"tokenFlag\\\":\\\"1\\\",\\\"speechRate\\\":\\\"500\\\"}\"}"
+
+
+"{\"appid\":\"20150314000000110000000000000010\",\"botid\":16,\"asr\":0,\"asr_profile\":\"ali-mrcp2\",\"asr_params\":\"Speech-complete-timeout=500,start-input-timers=true,No-Input-Timeout=60000\",\"asr_grammar\":\"test\",\"asr_corp\":\"ALI_V3\",\"tts\":1,\"tts_corp\":\"ALI_V4\",\"tts_id\":61,\"speed\":0,\"volume\":50,\"tone\":0,\"tune\":0,\"protocol\":\"http\",\"domain\":\"{\\\"sample_rate\\\":\\\"16000\\\",\\\"voice\\\":\\\"aixia\\\",\\\"area\\\":\\\"beijing\\\",\\\"bodyAppKey\\\":\\\"default\\\",\\\"token\\\":\\\"default\\\",\\\"tokenFlag\\\":\\\"1\\\",\\\"speechRate\\\":\\\"500\\\"}\"}"
+
+
+2021-05-18 15:10:10.425
+2021-05-18 15:10:10.295
+
+ps -ef|grep nmon|grep -v grep|awk '{print $2}'|xargs kill -9
+cd /app/zhangke && rm -f *.nmon
+cd /app/zhangke && ./nmon -f -t -s 1 -c 300
+
+
+
+
+2021-05-18 16:34:17.017
+2021-05-18 16:34:14.427
+
+
+
+2021-05-18 16:34:16.619
+2021-05-18 16:34:14.599
+
+
+
+2021-05-18
+今日工作：
+1、分析aicall5.1.2压测结果；  -- 发现两个问题：(1)rest解析号码文件遗漏号码；(2)rest读取mq消息丢失，导致少量通话的对话记录入库不完整     
+2、调试bot-engine压测脚本，压测bot-engine，分析bot-engine日志；   
+3、协助调试兴业上分测试环境；
+       
+
+明日计划：
+1、执行aicall5.1.2压测,分析压测结果；
+2、执行bot-engine压测,分析压测结果
+
+
+16:13:11.999
+16:13:11.998
+
+16:13:07.656
+16:13:07.645
+
+
+同步bot-engine压测结果如下：
+启动引擎TPS：1000/2.9=345   error率：0%
+触发引擎TPS：1000/1.14=877  error率：0%
+销毁引擎TPS：1000/1.36=735  error率：0%
+
+压测脚本在运行一个小时后因内存溢出异常终止了，以上为压测bot-engine一个小时内压测结果
+
+license.key concurrent size
+license.key ptype size
+
+
+2021-05-20
+今日工作：
+1、压测环境维护；
+2、优化了压测脚本的响应判断和结果输出；
+3、压测bot-engine； 两个问题：(1)bot-engine删除定时器报错，已同马亮沟通确认；(2)bot-engine的三个接口在1000和500并发下均报错，同马亮沟通后，是由于当前压测方案tcp连接通道建立太多导致，实际应用中tcp通道只有1到2个(取决于ivr数量)，压测bot-engine方案可能要调整
+
+明日计划：
+1、bot-engine压测方案调整；
+2、全链路压测结果分析
+
+
+
+
+socket_conn_1.settimeout(4)
+socket_conn_1.connect(('192.168.180.176', 9550))
+botEngine_api_1 = BotEngineApi(self.socket_conn_1, logger)
+
+socket_conn_2 = socket(AF_INET, SOCK_STREAM)
+socket_conn_2.settimeout(4)
+socket_conn_2.connect(('192.168.180.176', 9550))
+botEngine_api_2 = BotEngineApi(self.socket_conn_2, logger)
+
+
+
+def call_api(session_id):
+    # 启动引擎
+    logger.info("触发引擎-发送消息")
+    botEngine_api_2.start_engine(session_id)
+    res = wait_rev_msg("启动引擎", botEngine_api_2)
+    print(res)
+
+
+bot-engine压测结果如下：
+(500并发，压测时长8小时，共发送消息270万条，硬件配置4c8G)
+启动引擎接口错误率为：0.333%
+启动引擎平均耗时： 1.298s, 最大耗时： 4.075s, 最小耗时： 0.010s
+触发引擎接口错误率为：0.000%
+触发引擎平均耗时： 0.048s, 最大耗时： 0.521s, 最小耗时： 0.000s
+销毁引擎接口错误率为：0.000%
+销毁引擎平均耗时： 0.017s, 最大耗时： 0.218s, 最小耗时： 0.000s
+
+
+
+#狮桥项目服务器信息
+-----------------------------------------------
+狮桥vpn：
+https://vpn.sqrz.cn
+账号：sjz002
+密码：JSNRLX2AY6m6
+
+服务器：
+ASR+TTS-nginx负载IP端口
+asr:10.10.79.38:7010
+tts:10.10.79.38:8101
+
+asr-tts01	10.10.79.35   /home/v2.7.6service/service/demo 
+asr-tts02	10.10.79.71   /data/v2.7.6service/service/demo 
+
+负载机：
+10.10.79.61
+
+mysql用户名密码	aicall/ytxcc123
+redis	ytxcc123
+
+
+curl -H 'Content-Type:application/json;charset=utf-8' http://121.199.41.82:8101/stream/v1/tts?appkey=default&token=default&text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AF%E5%B9%BF%E5%8F%91%E9%93%B6%E8%A1%8C%E4%BF%A1%E7%94%A8%E5%8D%A1%E4%B8%AD%E5%BF%83&format=wav&sample_rate=16000
+
+curl -H 'Content-Type:application/json;charset=utf-8' http://10.10.79.38:8101/stream/v1/tts?appkey=default&token=default&text=%E4%BB%8A%E5%A4%A9%E6%98%AF%E5%91%A8%E4%B8%80&format=wav&sample_rate=16000
+
+
+10.10.79.38 8101
+
+
+File file =  new File(‪"D:\test.txt");
+
+zhangke@yuntongxun.com
+zhangke@yuntongxun.com
+/stream/v1/tts?appkey=default&token=default&text=${__urlencode(今天是周一)}&format=wav&sample_rate=16000
+
+{
+"appkey":"default",
+"text":"今天是周一，天气挺好的。",
+"token":"default",
+"format":"wav"
+}
+
+#!/bin/bash
+date
+for i in `seq 1 5`
+do
+{
+    echo "sleep 5"
+    sleep 5
+} &
+done
+wait  ##等待所有子后台进程结束
+date
+
+
+600并发、任务页面的导入(3万-5万)、外呼页面的导出(10万)
+
+性能测试方案：
+1、测试概况：测试背景、测试目的、测试内容    
+2、测试方法：
+3、测试资源：
+4、测试策略；
+5、测试工具；
+6、测试指标；
+7、测试启动/结束/暂停/再启动准则；
+8、
+
+
+
+兴业银行性能测试培训0607
+
+项目性能测试周期：
+预留一个月：调优脚本、搭建环境等
+
+性能测试需求分析：需求收集、测试基本策略、测试指标和范围、目标系统业务分析、测试场景分析（正常业务情况、特殊时段如双十一、非功能场景如异常/高可用场景、架构可扩展性、重要参数配置验证）
+
+测试计划与方案制定：
+首先需明确关键性能指标和测试范围
+测试方案
+测试工具
+测试环境（和生产环境的差异可能对测试结论造成很大影响）
+时间计划
+
+应用类系统测试数据应考虑到最近3年的数据增加情况
+
+行内有自己的性能测试平台
+
+性能测试问题：
+代码问题：代码变更需评估是否会对系统性能造成影响
+环境问题：30%-40%一般都是环境问题，所以性能测试环境的管理是比较重要的，建议可以由专人来进行管理
+数据库问题：缺少索引、空间、临时表等（数据库的改动也需要做功能测试 ）
+
+未使用的功能不建议上线生产，避免因为产生大量临时文件影响服务
+
+
+
+mount -t nfs 192.168.176.242:/app/tts_voice /app/tts_voice 
+mount -t nfs 192.168.176.242:/app/aicall_record /app/aicall_record
+
+mount -t nfs 192.168.176.242:/app/nums /app/nums
+
+
+
+
+
+
+测试需求：
+------------------------------------------------------
+600并发、任务页面的导入(5万)、外呼页面的导出(16万)
+
+
+0、外呼稳定性测试时长，行方模板中要求的是3*24小时；    外呼速度: 4.5w/h (每分钟通话50s)
+1、任务页面的导入号码期望响应时间；如导入5万条耗时多少: <=30s；
+2、外呼流水页面的导出，这里的16万数据量是否和生产使用场景一致，导出16万条数据期望响应时间: <=30s;
+
+3、需要给出业务库的数据量级别-客户要求考虑三年后的性能，轻库和重库对系统性能差别很大；
+   aicall_call_record：600万条通话记录，aicall_dialog_record：3000万条对话记录，aicall_outcome: 600万条号码;   aicall_crm: 600万，aicall_crm_field_values: 3000万
+     
+4、对于各个子程序的连接池、线程池、jvm内存等，需给出最优配置；
+   600并发、8c/16c：rest、pds、ivr
+5、nginx的负载均衡配置，有哪些优化项？
+   鑫科整理生产配置给到我。
+   
+6、版本确认；
+
+7、
+
+
+'liusd@yuntongxun.com'; '饶竹森' <raozs@yuntongxun.com>; '陈鑫科' <chenxk1@yuntongxun.com>; 'zhangkl' <zhangkl@yuntongxun.com>; 'maliang' <maliang@yuntongxun.com>
+
+
+
+
+aicall-web-resource	5.1.2.222
+aicall-manager- resource	5.1.2.39
+rest	5.1.2.254
+pds	5.1.2.60
+ivr	5.1.2.102
+faq	5.0.3.12
+pds	5.1.2.60
+cmserver	2.6.28
+clpms	1.6.0.25
+VUI SDK	5.1.2.51
+SL-SDK	5.1.2.43
+CONF-SDK	5.1.2.2
+botserver	5.1.2.88
+bot-engine	5.1.2.104
+bot-model	5.0.5.62
+
+
+
+Mysql：5.7.34 
+Redis：6.2.4
+ActiveMq：5.15.14
+apache-tomcat：9.0.46
+jdk：1.8.0_131
+nginx：1.20.1
+
+mysql mysql 5.7.34 
+redis 一致
+mq 一致
+tomcat 一致
+jdk没给你包 
+nginx 一致
+
+
+
+pq:?q<K4UWiV
+
+
+
+update user set password=password("yanshiopenserpass92") where user="root";
+
+update user set authentication_string=password('rootpass') where user='root' and Host='*';
+
+grant all privileges on *.* to root@localhost  identified by 'rootpass';
+
+config.db.url=jdbc:mysql://192.168.180.129:3306/aiconfig?useUnicode=true&amp;characterEncoding=UTF-8
+config.db.username=bpEFEzTd+Yo=
+config.db.password=bEvVqZ69A9DxNwNy9bDDCZf+zYNVgxLw
+
+安装nginx步骤：
+----------------------------------
+yum -y install zlib zlib-devel openssl openssl-devel pcre pcre-devel
+yum -y install gcc-c++
+./configure  --prefix=/app/nginx-1.20.1  --sbin-path=/usr/sbin/nginx --conf-path=/app/nginx-1.20.1/conf/nginx.conf --error-log-path=/app/nginx-1.20.1/logs/error.log  --http-log-path=/app/nginx-1.20.1/logs/access.log  --pid-path=/app/nginx-1.20.1/nginx.pid --lock-path=/app/nginx-1.20.1/nginx.lock  --user=nginx --group=nginx --with-http_ssl_module --with-http_stub_status_module --with-http_gzip_static_module --http-client-body-temp-path=/var/tmp/nginx/client/ --http-proxy-temp-path=/var/tmp/nginx/proxy/ --http-fastcgi-temp-path=/var/tmp/nginx/fcgi/ --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi --http-scgi-temp-path=/var/tmp/nginx/scgi --with-pcre
+
+
+
+Aaa321!@#
+
+
+TRUNCATE table aicall_outcome;
+TRUNCATE table aicall_call_record;
+TRUNCATE table aicall_dialog_record;
+TRUNCATE table aicall_crm;
+TRUNCATE table aicall_crm_field_values;
+
+
+20210623：
+今日工作：
+1、修改兴业银行性能测试计划；   
+2、编写性能测试用例；     已完成70%
+3、性能测试预测试；  --昨天构造的大数据量会影响后面性能测试结果统计，今天重新构造数据 
+
+明日计划：
+1、编写性能测试用例；
+2、性能测试-基准测试
+
+
+
+"{\"appid\":\"20150314000000110000000000000010\",\"corpid\":\"RL123456\",\"balance\":100.0,\"apptoken\":\"123456\",\"concurrent\":1000,\"status\":0,\"admin\":\"admin\",\"mgroup_id\":\"default\",\"appsecret\":\"121acdb0f4a14d7d801b2b973a2a142b\",\"disnumber\":\"4022000001\",\"sip_profile\":\"sofia/internal\",\"pushcdr\":0,\"callback_url\":\"http://ww.baidu.com\"}"
+
+
+{"moneyzong":["4000"],"date":["2021/6/17"],"tailnum":["1234"],"sex":["先生"],"moneyyuan":["4500"],"name":["张科"],"feilv":["21"]}
+
+
+{'moneyzong': ['8852'], 'date': ['2021/12/05'], 'tailnum': ['9047'], 'sex': ['女士'], 'moneyyuan': ['885.2'], 'name': ['name_2'], 'feilv': ['9.51']}
+
+
+[('default', '20150314000000110000000000000010', '16241561796396429339', '13971437861', 'eydtb25leXpvbmcnOiBbJzI2MTAnXSwgJ2RhdGUnOiBbJzIwMjEvMTEvMTAnXSwgJ3RhaWxudW0nOiBbJzM0NTYnXSwgJ3NleCc6IFsn5YWI55SfJ10sICdtb25leXl1YW4nOiBbJzI2MS4wJ10sICduYW1lJzogWyduYW1lXzEnXSwgJ2ZlaWx2JzogWyc3LjA0J119', '', 1, '2021-05-27 17:12:58'), ('default', '20150314000000110000000000000010', '16241561796396429339', '13971437862', 'eydtb25leXpvbmcnOiBbJzMxNzEnXSwgJ2RhdGUnOiBbJzIwMjEvMTIvMTQnXSwgJ3RhaWxudW0nOiBbJzUyNTcnXSwgJ3NleCc6IFsn5aWz5aOrJ10sICdtb25leXl1YW4nOiBbJzMxNy4xJ10sICduYW1lJzogWyduYW1lXzInXSwgJ2ZlaWx2JzogWyc3LjI4J119', '', 1, '2021-05-26 16:53:25')]
+
+
+总计耗时： 156.36162339999998s
+总计耗时： 65.39079219999999s
+总计耗时： 44.206067499999996s
+
+select count(*) from aicall_outcome;
+select count(*) from aicall_call_record;
+select count(*) from aicall_dialog_record;
+select count(*) from aicall_crm;
+select count(*) from aicall_crm_field_values;
+
+
+mysql慢查询：
+----------------------
+1、检查慢查询开关是否打开；   show variables like 'slow_query%';
+   设置慢查询开关： set global slow_query_log='ON';
+   设置慢查询日志： set global slow_query_log_file='/app/mysql/data/slow.log'
+2、查看慢查询时间；  show variables like 'long_query_time';
+   设置慢查询时间：set global long_query_time=1; 
+3、查看数据库系统时区：show variables like 'log_timestamps';
+   设置系统时区为操作系统：SET GLOBAL log_timestamps = SYSTEM;
+
+mysql -uopenser -pyanshiopenserpass92
+
+1、总量：aicall_outcome：600万；aicall_crm：600万；aicall_crm_field_values：3000万；
+         aicall_call_record：600万；aicall_dialog_record：3000万；   
+2、所有数据属于同一个appid；
+3、所有数据时间跨度：最近一个月；
+4、aicall_call_record、aicall_dialog_record数据属于同一个机器人；
+5、aicall_call_record、aicall_dialog_record属于30个任务；
+
+
+task_infos = [{"id": "16242455753483999619", "name": "构造大数据1"}, {"id": "16242455753802386978", "name": "构造大数据10"}, {"id": "16242455753774845990", "name": "构造大数据11"}
+{"id": "16242455754509227256", "name": "构造大数据12"}, {"id": "16242455753678160739", "name": "构造大数据13"}, {"id": "16242455754262346161", "name": "构造大数据14"}
+{"id": "16242455753704699045", "name": "构造大数据15"}, {"id": "16242455754389204798", "name": "构造大数据16"}, {"id": "16242455754252572713", "name": "构造大数据17"}
+{"id": "16242455753740609513", "name": "构造大数据18"}, {"id": "16242455754166573674", "name": "构造大数据19"}, {"id": "16242455753621112525", "name": "构造大数据2"}
+{"id": "16242455754086091154", "name": "构造大数据20"}, {"id": "16242455754082259454", "name": "构造大数据21"}, {"id": "16242455754224434842", "name": "构造大数据22"}
+{"id": "16242455752339036017", "name": "构造大数据23"}, {"id": "16242455753929153822", "name": "构造大数据24"}, {"id": "16242455754142962687", "name": "构造大数据25"}
+{"id": "16242455753671712960", "name": "构造大数据26"}, {"id": "16242455753885255818", "name": "构造大数据27"}, {"id": "16242455753822184615", "name": "构造大数据28"}
+{"id": "16242455754223235793", "name": "构造大数据29"}, {"id": "16242455752302585894", "name": "构造大数据3"}, {"id": "16242455754294863937",  "name": "构造大数据30"}
+{"id": "16242455753822117421", "name": "构造大数据4"}, {"id": "16242455752187417477", "name": "构造大数据5"}, {"id": "16242455752341333930",  "name": "构造大数据6"}
+{"id": "16242455753739053886", "name": "构造大数据7"}, {"id": "16242455753487754580", "name": "构造大数据8"},  {"id": "16242455752351647535",  "name": "构造大数据9"}
+]
+
+20210621：
+今日工作：
+1、修改导入大量业务数据的脚本；
+2、构造600万条业务数据；
+3、修改兴业银行性能测试计划文档；
+
+明日计划：
+1、编写性能测试脚本；
+2、完善性能测试计划
+
+
+org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [UPDATE aicall_user SET `last_login_time` = ? WHERE `user_id`= ? ]; SQL state [HY000]; error code [1015]; Can't lock file (errno: 165 - Table is read only); nested exception is java.sql.SQLException: Can't lock file (errno: 165 - Table is read only)
+
+
+
+aicall_outcome: 5973004
+aicall_call_record: 5973001
+aicall_dialog_record: 29850023
+aicall_crm: 5970001
+aicall_crm_field_values: 29850005
+
+
+
+
+
+
+系统外呼过程中，宕机一台botserver服务； 期望结果：号码均外呼成功
+5、系统外呼过程中，宕机一台bot-engine服务； 期望结果：约300个号码通话异常(bot-engine服务停止时正在处理的通话)，其余号码外呼成功
+6、系统外呼过程中，宕机一台cmserver服务； 期望结果：约300个号码通话异常(cmserver服务停止时正在处理的通话)，其余号码外呼成功
+7、先宕机一台rest服务，导入号码文件、查询外呼流水、导出外呼流水； 期望结果：号码导入成功，外呼成功，查询及导出外呼流水成功
+8、先宕机一台ivr服务，导入号码文件触发外呼； 期望结果：导入号码文件、号码均外呼成功
+9、先宕机一台bot-engine服务，导入号码文件触发外呼； 期望结果：导入号码文件、号码均外呼成功
+10、先宕机一台botserver服务，导入号码文件触发外呼； 期望结果：导入号码文件、号码均外呼成功
+11、先宕机一台cmserver服务，导入号码文件务触发外呼； 期望结果：导入号码文件、号码均外呼成功
+
+
+
+性能bug:
+------------------------------------------------------------
+1、外呼流水页面，无法加载出默认查询条件下的外呼数据；(请求1分钟后未查询到，nginx返回notfound404)
+2、任务详情页面加载历史拨打数据耗时过长(>15s)；
+3、外呼流水页面查询1条数据耗时过长；(>15s)
+4、导出一条外呼流水耗时过长；(约50s)
+5、导出6580条外呼流水耗时过长；(>3分钟)
+6、
+
+
+2021-06-28
+今日工作：
+1、高可用测试：   -已完成
+2、调试稳定性测试脚本； -已完成
+
+明日计划：
+1、可扩展性测试；
+2、验证性能bug
+
+{"appid":"20150314000000110000000000000010","task_id":"16242455754509227256","task_name":"构造大数据12","task_desc":"","bot_id":2,"user_id":1,"min_concurrent":1,"max_concurrent":600,"isrecord":1,"startDate":"2021-05-21 00:00:00","endDate":"2021-07-26 23:59:59","strategy":0,"status":0,"num_dir":"/app/nums/20150314000000110000000000000010","maxcount":50000}
+
+
+select count(*) from aicall_dialog_record where update_time>="2021-06-27 20:00:00" GROUP BY sessionid HAVING count(sessionid) > 7;
+select sessionid from aicall_dialog_record where update_time>="2021-06-27 20:00:00" GROUP BY sessionid HAVING count(sessionid) > 7;
+
+
+cd /app/zhangke && ps -ef|grep nmon|grep -v grep|awk '{print $2}'|xargs kill -9
+rm -f *.nmon && ./nmon -f -t -s 1 -c 7200
+ 
+
+
+2021-07-01 10:04:10.574 
+2021-07-01 10:03:23.679
+
+2021-07-01 10:06:34.162
+2021-07-01 10:05:44.271
+
+
+2021-07-02 11:36:06
+2021-07-02 10:16:57
+
+
+2021-07-01 19:01:14.768
+
+
+2021-06-27 20:54:18
+
+2021-06-27 22:12:55
+2021-06-27 20:54:18
+
+
+
+.toString();
+String successNums = resultJson.get("data").get("successNums").toString();
+String overstepNums = resultJson.get("data").get("overstepNums").toString();
+
+log.info("第{}次送号成功,发送号码数量为:{},实际送号成功数为:{}", String.valueOf(Integer.valueOf(total_count)+1),total,successNums);
+if(!total.equals(successNums)){
+log.info("Error: 送号总数和送号成功数不一致,请注意!");
+}
+
+{"code":"000000","data":{"total":10,"variableErrorNums":0,"blackNumberNums":0,"repeatInfo":{},"overstepNums":0,"successNums":10}}
+
+taskName_${__RandomString(4,0987654321qwertyuioplkjhgfdsazxcvbnm,)}
+
+
+{"bot_id":2,"task_name":"${task_name}","task_desc":"","start_date":"${__time(yyyy-MM-d HH:mm:ss,)}","end_date":"${__timeShift(yyyy-MM-dd HH:mm:ss,,P3D,,)}","max_concurrent":600,"min_concurrent":1,"isrecord":1,"disnumber":null,"caller":null,"call_policy":[]}
+
+
+
+兴业压测
+ps -ef|grep monitor|grep -v grep|awk '{print $2}'|xargs kill -9
+cd /app/zhangke/xyyc && nohup ./monitor.sh -t 49 -s 5 -c 3 &
+
+
+cd /app/zhangke/xyyc/import_phone && rm -f import_phone_result.jtl && nohup jmeter -n -t import_phone.jmx -l import_phone_result.jtl &
+cd /app/zhangke/xyyc/query && rm -f query_export_result.jtl  && nohup jmeter -n -t query_export.jmx -l query_export_result.jtl &
+
+
+
+
+1、导入5万条号码进行外呼，待外呼稳定后，即并发已到达600后，再次导入5万条号码；
+
+2、统计导入时间
+
+
+耗时大于120s;
+008+ 任务状态为异常状态
+010- 耗时&lt;=60s ；(这里的时间如果达不到，可以给出一个能达到的指标)
+010+ 任务状态为执行中
+
+
+
+产品：
+------------------
+智能陪练功能性能测试、座席辅助部署测试
+aicall性能测试、自动化测试、高可用测试
+
+项目：
+-------------
+上海票交所功能测试；
+广发催收项目2100路压测；
+广发客服项目1100路压测；
+兴业催收项目600路压测；
+狮桥项目asr、tts压测；
+兴业上分测试环境部署
+
+能力提升：
+-------------
+微服务架构基础知识；
+测试工具使用；
+编程语言；
+中间件熟悉
+
+
+团队提升：
+1、分享接口自动化测试相关理论和实操；
+2、协助组内同事进行aicall产品部署；
+3、协助组内同事进行性能测试
+
+
+
+[性能问题]clpms模块处理少部分通话存在延迟,最大延迟约10s
+[性能问题]pds送号速度不稳定，部分时段远低于实际设定值
+[性能问题]偶现ivr读取redis超时,导致通话失败 -已增大redis连接数，观察中打发第三方
+[性能问题]ivr日志中添加定时器报错，导致外呼结束后，不停地刷日志
+
+
+在线安装nginx
+--------
+1、yum install -y pcre pcre-devel
+2、yum install -y zlib zlib-devel
+
+  
+101.34.103.135/172.16.40.7     数据库服务器master  mysql:3306 redis:6379
+101.34.103.165/172.16.40.8     app1服务器   
+                               nginx:80/19660/9690/9620/9220/9210/9230/19640
+                               activemq:8161  rest:9630  ivr:9500  pds:9600  file:8868/8888  faq:9640  录音:9900				   
+1.116.32.216/172.16.40.4       app2服务器   rest:9630  ivr:9500  pds:9600    
+101.34.113.119/172.16.40.2     数据库服务器slave1 
+175.24.116.11/172.16.40.6      数据库服务器slave2 
+212.64.74.165/172.16.40.13     cm1服务器   器     botserver:9690   bot-engine:9550   bot-model:9660
+101.34.100.216/172.16.40.3     aikerne3服务器     botserver:9690   bot-engine:9550   bot-model:9660 
+101.34.103.68/172.16.40.10     模拟应答服务器：8600
+101.34.101.102	asr01	"/app/service"
+118.25.243.103	asr02	"/app/service"
+101.34.100.135	asr03	"/app/service"
+101.34.101.5	tts01	"/app/service"
+81.68.147.53	tts02	"/app/service"
+118.25.243.240	tts03	"/app/service"
+端口22
+
+root/1oV6Qs8GJs1xuWby
+
+mount -t nfs 172.16.40.12:/root/tts02 /root/tts02 
+mount -t nfs 172.16.40.12:/root/tts03 /root/tts03 
+mount -t nfs 172.16.40.8:/app/ivr_voice /app/ivr_voice
+mount -t nfs 172.16.40.8:/app/nums /app/nums
+
+mount -t nfs 172.16.40.8:/app/aicall_record /app/aicall_record
+mount -t nfs 172.16.40.8:/app/tts_voice /app/tts_voice 
+
+5254008940ef
+
+mkdir aicall_record tts_voice
+
+echo -e "磁盘容量为"$(df -h|grep /app|grep -v /app/|awk '{print $2}')",可用空间为"$(df -h|grep /app|grep -v /app/|awk '{print $4}'
+
+cd /app/redis-6.2.4/src && ./redis-cli -a ytx888yun slowlog get 128 >> test.log
+
+ 
+./redis-cli -a ytx888yun keys "aicall004*" | xargs ./redis-cli -a ytx888yun del
+
+
+"{\"appid\":\"20150314000000110000000000000010\",\"botid\":2,\"asr\":1,\"asr_profile\":\"ali-mrcp2\",\"asr_params\":\"Speech-complete-timeout=500,start-input-timers=true,No-Input-Timeout=60000\",\"asr_grammar\":\"test\",\"asr_corp\":\"ALI_V3\",\"tts\":1,\"tts_corp\":\"ALI_V4\",\"tts_id\":64,\"speed\":0,\"volume\":50,\"tone\":0,\"tune\":0,\"protocol\":\"http\",\"domain\":\"{\\\"sample_rate\\\":\\\"16000\\\",\\\"voice\\\":\\\"siyue\\\",\\\"area\\\":\\\"beijing\\\",\\\"bodyAppKey\\\":\\\"default\\\",\\\"token\\\":\\\"default\\\",\\\"tokenFlag\\\":\\\"1\\\"}\"}"
+
+/root/tts02 *(rw,no_root_squash,async)
+/root/tts03 *(rw,no_root_squash,async)
+/app/aicall_record *(rw,no_root_squash,async)
+
+
+mount -t nfs 10.163.198.107:/app/tts_voice /app/tts_voice 
+mount -t nfs 10.163.198.107:/app/ivr_voice /app/ivr_voice
+				  
+已修改的问题：
+1、3、4、5、6、				  
+				  				  
+./backtrace-from-core /path/to/core.xxxxx /path/to/cmserver	  
+				  
+开启生成core命令：ulimit -c unlimited 	  
+				  
+		http://192.168.201.66/		  
+				  
+
+
+测试环境自动升级方案：
+----------------------------------------------------
+1、升级方：测试人员；
+2、升级机制：手动触发升级；
+3、升级内容：前端和后端
+4、回滚
+
+输入：jar包、version文件
+输出：升级后，服务启动状态，进程运行
+
+
+grant all privileges on *.* to aicall@'*.*' identified by "Ytxcc123^!";
+
+
+mysql -uaicall -pYtxcc123^!
+
+	{'code': '000000', 'data': '16273747136549298884'}		  
+				  {'code': '000000', 'data': '16273751942403999390'}			  
+ 
+				  
+cm2:				  
+asr未识别：17702-61014AD3-225EF-0   		20210729 10:40:18
+正常通话：17702-61014AD3-21675-0            20210729 10:16:05       		  
+				  
+				  
+				  
+				  
+pds任务终止会操作  
+				  
+{'botId': 134, 'intention': '订票', 'similarList': [{'similar': '出发地', 'slotList': [{'slotName': 'user.city_a79shrwf', 'posName': '出发地', 'entityId': 157, 'entityName': 'user.city', 'entityAlias': '城市', 'slotAlias': '出发城市'}]}, {'similar': '目的地', 'slotList': [{'slotName': 'user.city_k96pt4x7', 'posName': '目的地', 'entityId': 157, 'entityName': 'user.city', 'entityAlias': '城市', 'slotAlias': '达到城市'}]}], 'ruleList': [{'regx': '订.*票', 'status': 0}], 'appId': '20150314000000110000000000000010'}
+
+{"id":3190,"botId":134,"intention":"订票","similarList":[{"id":940,"similar":"出发地","intentId":3190,"flag":false},{"id":941,"similar":"目的地","intentId":3190,"flag":false}],"ruleList":[{"regx":"订.*票","status":0,"flag":false,"id":null}],"slotList":[{"id":378,"slotName":"user.city_sas6zn0p","slotAlias":"出发城市","entityId":157,"entityName":"user.city","entityAlias":"城市"},{"id":379,"slotName":"user.city_72efxnrm","slotAlias":"到达城市","entityId":157,"entityName":"user.city","entityAlias":"城市"}],"appId":"20150314000000110000000000000010"}
+
+重置root密码
+alter user user() identified by "rootpass";
+
+创建mysql用户和密码：
+create user openser identified by 'yanshiopenserpass92'
+
+
+grant all privileges on *.* to aicall@'*.*' identified by "Ytxcc123^!";
+
+grant select,insert,update,delete,create,drop on *.* to openser identified by 'yanshiopenserpass92';
+
+grant select,insert,update,delete on *.* to test1@”%” identified by “123456″;
+
+yum install bzip2 libcurl ldns libedit libidn libjpeg libogg libsndfile libtheora libtiff libuuid libvorbis libxml2 lzo ncurses openssl pcre speex-devel sqlite unbound unixODBC zlib mysql-connector-odbc mariadb-libs
+
+2021-08-03 18:18:58.626 [INFO] nioEventLoopGroup-3-11 [f030536c-ebea-49bb-99c3-717e3b4a3830] - ------------------------- start - [9]-------------------------
+
+
+
+ echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
+
+ echo 0 > /proc/sys/net/ipv4/tcp_tw_recycle
+=I2-IF(I2<10,0,IF(I2>90,81,IF(I2>80,72,IF(I2>70,60,IF(I2>60,54,IF(I2>50,45,IF(I2>40,36,IF(I2>30,27,IF(I2>20,0,IF(I2>10,0))))))))))
+
+
+
+
+botserver压测说明：(单模块压测)
+-------------------------------------------------------------------------------------------------------------
+botserver高频接口：[待确定]  并发：2000   qps: 10000
+1、http://192.168.176.243:9690/v1/application/20150314000000110000000000000010/global-auth/login       
+  #response：{"code":"000000","data":{"token":"747328DBD8D44DE5538A3B667593FFEF","expires":"13148"}}
+2、http://192.168.176.243:9690/v1/aicall-web/sync/record    并发：1000  
+  #response：{"sessionid":"3ed689a6b198243646d90c34de651abd","botid":188,"record":[{"type":0,"recordurl":"http://192.168.176.242:9900/20150314000000110000000000000010/2021-08-11/14-59/_15191756375_20210811145959.wav"}]} 
+3、获取标签；      并发：1000
+
+#4、获取流程详情；  并发数：1000
+  
+3、http://192.168.176.243:9690/v1/aicall-web/bot/getBot
+  #response：{"botId":188}
+4、http://192.168.176.243:9690/v1/aicall-web/bot/flow/list-getVariable
+  #response：{"code":"000000","data":["sex","name"]}
+
+服务器硬件配置：8c/16G
+单台服务器并发数：[待确定]
+每个接口qps范围：[待确定]
+
+
+model压测说明: 并发:1000  qps:
+-------------------------------------------------------------------------------------------------------------
+model高频接口：[待确定]
+1、意图分类；
+2、实体抽取；       
+3、情感分类；
+
+服务器硬件配置：8c/16G
+单台服务器并发数：[待确定]
+每个接口qps范围：[待确定]
+
+
+bot-engine压测说明:
+-------------------------------------------------------------------------------------------------------------
+bot-engine高频接口：
+1、启动引擎；
+2、触发引擎；
+3、销毁引擎
+
+服务器硬件配置：8c/16G
+单台服务器并发数：[待确定]
+每个接口qps范围：[待确定]
+
+
+
+规则引擎压测说明:
+-------------------------------------------------------------------------------------------------------------
+规则引擎高频接口：
+1、识别；   并发：1000
+2、触发引擎；
+3、销毁引擎
+
+服务器硬件配置：8c/16G
+单台服务器并发数：[待确定]
+每个接口qps范围：[待确定]
+
+
+
+全链路：
+
+
+
+model压测可以优化的配置项：
+--------------------------------------
+1、修改model服务配置项-aiconfig表以下几处：
+
+2、优化linux服务器/负载机端口重用、回收机制
+root用户执行命令：
+echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse
+echo "1" > /proc/sys/net/ipv4/tcp_tw_recycle
+
+
+备份mysql指定表：
+mysqldump -uopenser -pyanshiopenserpass92 aibot aicall_flow aicall_bot aicall_bot_trigger aicall_bot_variable > /app/zhangke/bakup.sql
+mysqldump -uopenser -pyanshiopenserpass92 aibot < /app/zhangke/bakup.sql
+
+mysqldump -uopenser -pyanshiopenserpass92 aibot aicall_bot* > /app/zhangke/bakup.sql
+
+mysqldump -uroot -prootpass aibot aicall_flow > /app/zhangke/bakup.sql
+
+mysql -uroot -prootpass aibot < /app/zhangke/bakup.sql
+grant all on *.* to openser identified by 'yanshiopenserpass92';
+GRANT SUPER ON *.* TO 'openser'@'%';
+
+flush privileges;
+grant all on *.*  to  'openser'@'%';
+
+测试redis性能：
+------------------
+./redis-benchmark -h 127.0.0.1 -p 6379 -c 2000 -n 1000 -q
+
+vim /etc/sysctl.conf 
+修改net.ipv4.tcp_abort_on_overflow=0
+/sbin/sysctl -p 
+
+
+兴业压测服务器规划；
+---------------------------------
+app服务器: 2台
+aikernel服务器: 2台
+媒体服务器：2台
+mysql数据库服务器mgr主从：3台
+redis、nginx、mq服务器：1台
+模拟应答服务器: 2台
+
+
+以下是兴业银行600路 24小时稳定性测试工作量评估：(注：以下仅为稳定性测试工作量评估，如增加扩展测试、高可用测试等其他测试类型，需要重新评估)
+1、搭建性能测试环境：2 人天    --若开发提供的应用版本、基础组件版本或部署文档不对，可能会导致时间延长
+2、创建基础数据、构造数据库环境：2人天；  --需要现场同事提供生成的业务库结构，如单个任务下最大送号量，每日送号量，每日最大外呼量，如现场同事未及时提供，可能导致时间延后
+3、调试压测脚本：2人天      
+4、执行全链路压测：3人天       --若发现了较严重bug开发无法及时解决，可能会导致时间延长
+5、编写全链路测试报告：1人天   
+
+
+*/2 * * * * find /app/install/app/gateway/pcm/* -type f -mmin +5|xargs rm -
+
+
+
+botserver两个性能问题
+(1)1000并发下同步录音接口平均响应时间约为5.9s,远大于指标要求(<=2s) redmine：202039
+(2)混合场景稳定性测试12小时，同步录音接口出现个别错误{"code":"999997"} redmine：202038
+
+
+
+负载机和服务器分别抓包，定位到socket  recv慢的原因
+
+tcp.stream eq 0
+
+
+[2021-08-20 18:05:05,138
+
+rm -f test.cap && tcpdump -X -i any 'port 9660' -w test.cap
+rm -f test.cap && tcpdump -X -i any 'port 9550' -w test.cap
+rm -f test.cap && tcpdump -X -i any 'port 9510' -w test.cap
+rm -f test_client.cap && tcpdump -X -i any 'port 9550' -w test_client.cap
+rm -f test_client.cap && tcpdump -X -i any 'port 9550' -w test_client.cap
+
+cd /app/zhangke/xyyc/ && ./nmon -t -f -s 5 -c 9000
+
+nohup jmeter -n -t sync_record.jmx -R 192.168.176.242 &
+
+
+${__P(thread_amount,)}
+${__P(agent_ip,)}-
+
+正则>模型>相似度计算>知识库
+
+
+./nmon -t -f -s 5 -c 9000
+
+2460万
+
+压力测试工具ab使用步骤：
+---------------------------------------------
+root用户执行命令安装ab：yum -y install httpd-tools
+ab -V 查看是否安装成功
+参数说明：
+-c 并发数
+-n 总请求数
+-t 测试总时长(单位秒,默认50000s)
+-p 指定post请求参数文件路径
+-T post请求指定的Content-type头信息
+
+
+ab -n 10000 -c 1000 -p param.json -T 'application/json;charset=utf-8' -U http://192.168.176.246:9660/v1/aicall/model/intent/recognize
+ab -n 1 -c 1 -p param2.json -T 'application/json;charset=utf-8' -U http://118.178.227.107:9660/v1/aicall/model/intent/recognize
+
+
+ab -n 1 -c 1 -p param.json -T 'application/json;charset=utf-8' -U http://192.168.176.243:9660/v1/aicall/model/intent/recognize
+
+
+{
+"appid":"20150314000000110000000000000010",
+"botid":4922,
+"texts":"[{\"text\":\"我想要买点理财，让钱升值\"}]"
+}
+
+
+
+
+./redis-cli -a ytx666yun keys "*|14" | xargs ./redis-cli -a ytx666yun del
+
+
+
+
+ttp://192.168.176.242:9501/92001/20150314000000110000000000000010/14/ALI_V4/0585cdf9736c9955043404a645c2c2e2.wav
+您好！这里是智能银行信用卡中心。请问是{name}{sex}吗？您尾号为{tailnum}的银行，目前欠款总额为{moneyzong}，截止还款时间为{date}，请您按时还款，如果您无法一次性还清，可以进行分期付款每期还款额为{moneyyuan},分期费率为{feilv}，你看可以考虑吗。如果欠款不还，您将会被纳入失信人员名单，将影响您的个人征信，会给您的生活带来很多不便，很多人因为欠款不还被限制消费，连高铁都无法乘坐，您是知道的吧，请您按时还款，再见！
+
+
+nohup java $JAVA_OPTS -jar "$BIN_FILE" >/dev/null 2>"$LOG_DIR"/stderr.log &
+
+
+int fail_count = vars.get("query_fail_count");
+int pass_count = vars.get("query_pass_count");
+
+if(code == "000000"){
+pass_count += 1;
+vars.put("query_pass_count", str(pass_count));
+log.info("本次查询成功,查询" + totalRows + "条数据,耗时:" + String.valueOf(timeElapse/1000.0) + "s");
+}
+else{
+fail_count += 1;
+vars.put("query_fail_count", str(fail_count));	
+log.info("本次查询出错");
+}
+log.info("共查询" + "次,其中成功" + str(pass_count) + "次,失败" +  str(fail_count) + "次");
+
+
+
+ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+
+
+
+
+1、rest程序调用存储过程中sql报语法错误，通过修改sqlmode、重新创建存储过程来解决；    --这是一个巨坑，确定生产升级时也要这么操作吗？
+2、对sql存储过程中使用用户不当的问题，通过直接修改成了测试环境使用的用户来解决；    --这种临时方案将在生产投产中带来麻烦，为什么要在存储过程中带入指定的用户？；
+3、日志文件配置可能引起rest内存分配错误的问题，开发临时提供了修改后配置文件；    --确定UAT测试环境和生产会同步更新吗
+
+
+外呼时变量不生效、重复外呼、资源不释放/资源释放慢、rest内存分配错误、
+pds外呼慢、cmserver和ivr交互延迟、少量通话中clpms挂机存在延迟、ivr向mysql插入数据报拿不到连接异常、
+ivr日志中包含调试日志、日志重复写入到stdout.log
+//调存储过程异常、clpms宕机、
+
+
+ff1fb0eebcda08e43f97661cf3c401d4
+
+ivr处理stop service事件有延迟；
+clpms挂机有延迟；
+
+
+fed3c022d79ce7aef76197efceb62f96
+
+
+
+{"appId":"20150314000000110000000000000010",
+"botId":6,
+"intention":"dafdsf",
+"similarList":[{"similar":"dfsdfdf"}],
+"slotList":[{"slotName":"user.Time_yx8cn52c","slotAlias":"test","entityId":35,"entityName":"user.Time","entityAlias":"时间"}],
+"ruleList":[{"regx":"dfsdfdsf","status":0}]}
+
+
+
+{"corpId":"HtfBzAUs+uwOrsjZxONZBA==","userName":"9h3ks5vW9tAvd2P5+FZSzQ==","password":"Gm3MSoNxV6MBk8pnWyT9zA=="}
+
+
+
+
+
+{"appid":"20150314000000110000000000000010","botid":18,"varjson":"{\"sex\":[\"先生\"],\"name\":[\"张科\"]}","words":"你好","cmd":"startengine","sender":"gdvs76quqci5h5ht8brow5649q59nklp"}.
+
+
+
+'utf-8' codec can't decode byte 0x89
+
+
+
+负载测试：
+1、找到系统处理能力的极限、了解性能容量、配合性能调优；
+
+并发测试：
+
+
+配置测试：
+(1)了解各种不同因素对系统影响程度，得出值得进行的调优配置；
+(2)对系统性能有初步了解后进行；
+(3)用于性能调优和规划能力
+
+
+压力测试-在系统压力处于饱和状态下，系统处理会话的能力，以及系统是否会出现错误；-高压力下的稳定性
+可靠性测试-在系统处于一定压力下，让系统持续运行一段时间，测试系统是否能稳定运行；
+失效恢复测试-针对有冗余备份、负载均衡的系统，测试当局部发生故障时，用户是否可以继续使用系统，以及受到多大程度的影响；
+
+
+性能测试应用范围：能力验证（指定条件下，系统能否具有期望表现能力）   - 验收性能测试、压力测试、可靠性测试、失效恢复测试
+                  能力规划（应该如何才能使系统具有我们要求的能力或在什么条件下，系统具有什么样的能力）   -负载测试、压力测试、配置测试
+				  性能调优（1、确定基准环境、基准负载和基准性能指标；2、调整系统运行环境和实现方法，执行测试；3、记录测试结果并分析） 
+				  发现缺陷
+				  
+
+
+
+
+aikernel升级日志：http://wiki.yuntongxun.com/pages/viewpage.action?pageId=391807039
+1、botserver：http://redmine.yuntongxun.com/redmine/issues/202022
+2、bot-engine：http://redmine.yuntongxun.com/redmine/issues/202205
+3、aikb: http://redmine.yuntongxun.com/redmine/issues/202201
+
+
+性能调优常用思路：
+-----------------------------------------------------------------------------
+1、硬件环境的调整：服务器部署架构、服务器CPU、内存、网络带宽升级等；
+2、系统设置的调整：数据库连接池大小，http/tcp连接队列数和大小、jvm大小、中间件版本升级等；
+3、应用级别的调整：选用新的框架、采用新的数据库访问方式、修改缓存方式、修改业务逻辑实现方式等
+
+
+admin or 1=1#
+123abc! or 1=1#
+
+
+
+测试经理：(1)制定测试计划；(2)监控测试进度；(3)识别测试风险；(4)负责对外沟通，协调必要的人员协助测试
+测试设计：(1)定义测试目的(验证还是探索)；(2)识别性能需求；(3)设计测试场景；(4)测试环境确认及规划；(5)指定测试方案
+测试开发：(1)编写性能测试用例；(2)测试脚本开发、调试，含必要的服务器资源监控脚本；(3)确定性能测试指标和要监控的参数项；
+测试执行：(1)部署测试环境,含构造必要的数据环境；(2)基准测试；(3)执行测试脚本；(4)监控服务器资源；(5)记录测试结果，服务器资源监控文件
+测试分析：(1)根据测试结果、性能指标、服务器监控数据进行分析，给出初步的分析结果(性能瓶颈)；(2)根据分析结果给出性能调优建议
+支持人员：(1)网络工程师;(2)系统工程师;(3)数据库工程师;
+
+
+
+sql注入：将恶意的sql语句插入到应用的输入参数中，再在后台数据库服务器上解析执行进行的攻击。
+实际使用中的潜在危害：访问动态网页时，web服务器会向数据库访问层发起sql查询请求，如果权限验证通过就会执行sql语句，很多时候都是结合用户的输入动态构造sql语句，如果用户输入恶意sql，web应用又未对动态构造的的sql进行审查，则会带来意想不到的危险。
+1、猜解后台数据库，盗取网站的敏感信息；
+2、绕过认证登录网站；
+3、注入可以借助数据库的存储过程进行提权等操作
+
+
+ssh-keygen -t rsa -C "245505978@qq.com"
+
+-- gitstatus fatal: not a git repository 
+git init
+
+-- git clone  Failed to connect to github.com port 443 after 21415 ms: Timed out
+git config --global --unset http.proxy
+
+-- Author identity unknown
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+-- 临时存储密码
+git config --global credential.helper store
+
+git pull origin master --allow-unrelated-histories
+
+
+
+
+
+
+

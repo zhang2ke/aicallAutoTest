@@ -1,0 +1,38 @@
+env_info:
+  service_ip: 192.168.180.122
+  service_port: 80
+  db_ip: 192.168.179.28
+  db_port: 3306
+  db_user: aicall
+  db_pwd: Ytxcc123^!
+  db_name: aimatrix
+
+login_info:
+  url_path: v1/aicall-web/auth/login
+  corp_id: HtfBzAUs+uwOrsjZxONZBA==
+  user_name: 9h3ks5vW9tAvd2P5+FZSzQ==
+  pwd: Gm3MSoNxV6MBk8pnWyT9zA==
+
+add_custom:
+  url_path: /v1/aicall-web/crm/save-crm
+  custom_name: 李斯
+  sex: 0
+  phone: 13312345678
+
+del_custom:
+  url_path: /v1/aicall-web/crm/remove-crm
+
+query_custom:
+  url_path: /v1/aicall-web/crm/list
+
+speech_engine:
+  bot_id: 134
+  url_path: /v1/aicall-web/sys/setting/speechengine/save
+  asr_id: 1
+  sensitivity: 500
+  speed: 0
+  tts: 1
+  tone: 0
+  tts_id: 61
+  volume: 50
+

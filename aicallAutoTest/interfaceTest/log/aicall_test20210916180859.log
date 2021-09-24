@@ -1,0 +1,131 @@
+[2021-09-16 18:08:59,730][setUpClass][INFO] ###############开始执行测试类:pds接口用例###############
+[2021-09-16 18:08:59,731][setUpClass][INFO] ###############测试用例执行前准备
+[2021-09-16 18:08:59,731][setUpClass][INFO] ###############1.获取测试环境和测试数据
+[2021-09-16 18:08:59,745][setUpClass][INFO] ###############2.创建pds接口操作对象，用于调用pds接口
+[2021-09-16 18:08:59,748][get_auth_token][INFO] Login web to get Authentication and sdk-token
+[2021-09-16 18:08:59,748][login_web][INFO] 登录web-请求信息如下: 
+url=http://192.168.180.122:80/v1/aicall-web/auth/login, 
+header={'Content-Type': 'application/json;charset=UTF-8'}, 
+body={'corpId': 'HtfBzAUs+uwOrsjZxONZBA==', 'userName': '9h3ks5vW9tAvd2P5+FZSzQ==', 'password': 'Gm3MSoNxV6MBk8pnWyT9zA=='}
+[2021-09-16 18:08:59,902][login_web][INFO] 登录web-响应信息：{'code': '000000', 'data': {'appToken': '123456', 'corpId': 'RL123456', 'email': '123@qq.com', 'status': 0, 'appStatus': 0, 'disnumber': '', 'concurrent': 100, 'mgroupId': 'default', 'displayNumber': 0, 'level': 1, 'roleIds': '1', 'createTime': '2018-04-03 15:51:41', 'corpType': 1, 'botType': '0,1', 'company': '智能语音机器人', 'forbiddenPolicySetting': 1, 'userId': 1, 'channelId': 'CH66666666', 'appId': '20150314000000110000000000000010', 'userName': 'admin', 'nickName': 'ronglian', 'loginType': 'WEB', 'authorities': [{'role': 'ROLE_WEB_admin'}], 'token': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5OWE4ZWNhZS0wODcxLTRiMTQtODIxOS1mMjYzMmQzNTVkYjQiLCJpc3MiOiJodHRwczovL3d3dy55dW50b25neHVuLmNvbS8iLCJzdWIiOiIxIiwiYXVkIjoiV0VCIiwiaWF0IjoxNjMxNzg2OTYxfQ.O2dx15wd-qyVBlRCZTry6t_j9GrDI9hNJ15AUqxl1pP5IaD1-hGzm7jbTGLjmyi4Q-vnXtc3U4x0LSJDOAveQA', 'sdkToken': '{"token":"A1662D627658804517F373B3BF9E0AB1","expires":"9062"}'}}
+[2021-09-16 18:08:59,902][get_auth_token][INFO] Get Authentication and sdk-token success
+[2021-09-16 18:08:59,902][setUpClass][INFO] ###############3.建立aibot和aimatrix数据库连接，用于恢复数据库环境
+[2021-09-16 18:09:00,619][setUpClass][INFO] ###############4.创建测试数据:机器人、话术流程、编辑流程、绑定语音引擎、上线机器人
+[2021-09-16 18:09:00,620][create_bot][INFO] 新建机器人-请求信息: 
+url=http://192.168.180.122:9690/v1/aicall-web/bot/save, 
+header={'token': 'A1662D627658804517F373B3BF9E0AB1', 'appid': '20150314000000110000000000000010', 'Content-Type': 'multipart/form-data; boundary=edca9fe8549442dd9ccfa36930d52773'}, 
+body={'botName': '接口测试_新建机器人5249', 'botType': '0', 'bot_icon': 'img/system/9.png', 'nlpEngine': 'RL-NLP', 'tts': '1'}
+[2021-09-16 18:09:00,823][create_bot][INFO] 新建机器人-响应信息：{'code': '000000', 'data': {'botId': 572, 'appId': '20150314000000110000000000000010', 'botName': '接口测试_新建机器人5249', 'botType': 0, 'nlpEngine': 'RL-NLP', 'imgUrl': 'img/system/0.png', 'status': 0, 'score': 0.6, 'createTime': '2021-09-16 18:09:01', 'updateTime': '2021-09-16 18:09:01', 'share': 0, 'nlu': '{"model_id":100,"model_name":"通用意图识别模型","model_type":"nlu","model_alg":"bert","trade_id":1,"version_id":16}', 'ner': '{"model_id":101,"model_name":"通用实体识别模型","model_type":"ner","model_alg":"bert","trade_id":1,"version_id":452}', 'sentiment': '{"model_id":215,"model_name":"通用情感分析模型","model_type":"sentiment","model_alg":"textcnn-zl","trade_id":1,"version_id":434}', 'kbEngine': 'RL'}}
+[2021-09-16 18:09:00,824][create_bot_flow][INFO] 新建话术流程-请求信息: 
+url=http://192.168.180.122:9690/v1/aicall-web/bot/flow/save-flow, 
+header={'Content-Type': 'application/json;charset=UTF-8', 'token': 'A1662D627658804517F373B3BF9E0AB1', 'appid': '20150314000000110000000000000010'}, 
+body={'appId': '20150314000000110000000000000010', 'botId': 572, 'flowName': '接口测试_新增话术流程8180', 'callType': 0}
+[2021-09-16 18:09:00,926][create_bot_flow][INFO] 新建话术流程-响应信息：{'code': '000000', 'data': {'flowId': 863}}
+[2021-09-16 18:09:00,927][edit_flow_data][INFO] 编辑话术流程-请求信息: 
+url=http://192.168.180.122:9690/v1/aicall-web/bot/flow/edit, 
+header={'Content-Type': 'application/json;charset=UTF-8', 'token': 'A1662D627658804517F373B3BF9E0AB1', 'appid': '20150314000000110000000000000010'}, 
+body={'flowId': 863, 'botId': 572, 'flowSrcDataCompress': 'H4sIAAAAAAAAA+1YX0/bVhR/51NY5jWEOE4Izhu0W4W2dkigaROJ0CW+Dl5sX8u+WYkiS4htGp3G1mqT2iGqimlIaKpKNU0q3ej4MtiEp36FnXttE8c4QKauD1UDinzOPf/uOece/3K7gtgwkOuKVUFskvwtB9mrH+tWy71NVGyIuTFBEA2gP3SIOU8cOqfOO8TGDu0wDS3i9uUWyUUpSvoyFpi9iSiacRzEFpeEsa7YQBQ3iQO06FLEREGpY+MkzR9u62ti1WobBjBaGOQnJHgySAMk5YIgF7gmse+0TbGqKApQjt5cpQnawFqSXCGUEjPBAG0ebZU6bRzrD3CYhQGGDVmwgRR7B3+ebn8dPDpgYczeAs54oaIoNxUeFlhqYmfO0ghke0noxpyP2EYKSQmKLcplloSETaEu1PtSi8hpYnA6IXtC3culsmhj1GJOLWSyLPpH6/7OX72Dx8HOQTK5fTGqEyuZXb1BLJDI5yfP/6ECVG9MQrNg6k5qBrk7ZzYnHWwbnbxtNZkdRqDOB5YKqoxWdddp89TwyiBDb1ombE6sduO2Y123YBNe47UwDywd+TI8EE0DX5+F3JD4HAjvvPpyv/rlvDSlFKcg3eXpSrlcEiSpwmzCPij3CJl8cfbwWbCxD8nsssR4XReveUxI0w2DVUvjH5H3haNCkol9gxjEYWtIUeUir+QXbdP+pH2+KxsyNosarZhuWy2L3LVQg+U0jD1iUQdZrsaOBUt/lOlobZHzeBvoJiZtmtSPWJn60Vpf38WWumBCajVkuDisCkZh08t9hTQNClIiVlhewc6AxHzc50vdmojaqk4W8RqtidWaCFn19169PvoeHnrHj/ydff/+w9dHT2piLhJdcBpccjymlifk5WFqy+M10ctd7uWrV/79p/7m82DzAZwR6O3RPQ4xwb3XE6W87sbB3s7+2bdb/m9bJ4frwdNdsCewtc0HwR+7wc49cBccfhPsbY8e6PUNs/DB9JfI0dGKwactN39FSiEHx7/0/nl5crzr//ji5BCc/R4u+Zvbwb0tFkc4i7jThMehIY6yy//H/SW54AVG+gyLxo3mFR+I88iB4UBZ83eTs33o9Ig3xKdEYnNJleVxPnd1amTN49Sc1HRLd1exmpooM27Lfd+E714TRuP1euV9d4Zr+Foy0RrbP9u5nEhGmh0dgTT7ilexa/KT7V0JvyZKw/BXB5wNQV7lDOQVySSwFxx+aJgE6hoQ+c+4K7ISI683Dq1KfWglp6FVsVCKoJV6o9NgE42ZpKg5p/ZhSRjfwDCNx18iJaFUlBk9hGpeZAxKBUWoR570EA6JS+yAMEaNBV+LlOYYKZWVc86nyOANera+ffrzfm/jwH+2zds3lL8DUWWse/W6eBWYPv37p+Dxk953G6cbL98wmGbIjZnJwtPS2wDU5cuqXlFSgPr5r/APZ50NxB/24LgnsTReYX/ZWHqKf95jadbO2UBzVHSSWYpsYFJevig9CE/SHT4cnkgZ8CTrnfa2B743BhM7vpO4cN/Ari2iuwNKop+R51cZVXE2vEWIqEXuh+jhK0Eu5KYKOfiuwHf6N2duupLBVCrhWyLyKsdeSyN4vWBUkrNcSSXgpg9uTqqUsrjTpYG4SnFc5RHiumC1WMzyVZQzuSUli1tW6qx83r8JWCGfmxIAAA==', 'flowType': 1, 'appId': '20150314000000110000000000000010'}
+[2021-09-16 18:09:01,029][edit_flow_data][INFO] 编辑话术流程-响应信息：{'code': '000000'}
+[2021-09-16 18:09:01,029][bind_speech_engine][INFO] 绑定语音引擎-请求信息: 
+url=http://192.168.180.122:80/v1/aicall-web/sys/setting/speechengine/save, 
+header={'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5OWE4ZWNhZS0wODcxLTRiMTQtODIxOS1mMjYzMmQzNTVkYjQiLCJpc3MiOiJodHRwczovL3d3dy55dW50b25neHVuLmNvbS8iLCJzdWIiOiIxIiwiYXVkIjoiV0VCIiwiaWF0IjoxNjMxNzg2OTYxfQ.O2dx15wd-qyVBlRCZTry6t_j9GrDI9hNJ15AUqxl1pP5IaD1-hGzm7jbTGLjmyi4Q-vnXtc3U4x0LSJDOAveQA'}, 
+body={'botId': 572, 'asrId': 1, 'ttsId': 61, 'tts': 1, 'speed': 0, 'volume': 50, 'sensitivity': 500, 'tone': '0'}
+[2021-09-16 18:09:01,098][bind_speech_engine][INFO] 绑定语音引擎-响应信息：{'code': '000000'}
+[2021-09-16 18:09:01,098][bot_on_line][INFO] 机器人上线-请求信息: 
+url=http://192.168.180.122:9690/v1/aicall-web/bot/online, 
+header={'Content-Type': 'application/json;charset=UTF-8', 'token': 'A1662D627658804517F373B3BF9E0AB1', 'appid': '20150314000000110000000000000010'}, 
+body={'botId': 572}
+[2021-09-16 18:09:01,145][bot_on_line][INFO] 机器人上线-响应信息：{'code': '000000'}
+[2021-09-16 18:09:01,145][setUpClass][INFO] ###############测试用例执行前准备完成,开始执行测试用例###############
+
+[2021-09-16 18:09:01,145][setUp][INFO] 开始执行测试用例:测试创建任务, 该用例对应方法名称:test001_create_task
+[2021-09-16 18:09:01,145][test001_create_task][INFO] Step: 使用测试数据中信息创建任务
+[2021-09-16 18:09:01,145][create_task][INFO] 创建任务-请求信息如下: 
+url=http://192.168.180.129:9600/v1/aicall/task/commit, 
+header={'Content-Type': 'application/json;charset=UTF-8'}, 
+body={'appid': '20150314000000110000000000000010', 'bot_id': 572, 'task_id': 18290363607593092210, 'task_name': '接口测试_创建任务', 'task_desc': '', 'start_date': '2021-09-16 00:00:00', 'end_date': '2021-09-16 23:59:59', 'max_concurrent': 10, 'min_concurrent': 1, 'isrecord': 1, 'num_dir': '/app/nums/20150314000000110000000000000010', 'user_id': 1, 'call_policy': []}
+[2021-09-16 18:09:01,236][create_task][INFO] 创建任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:09:07,479][test001_create_task][INFO] Verify: 验证创建任务是否返回正确响应
+[2021-09-16 18:09:07,480][verify_result][INFO] Result: 验证通过
+[2021-09-16 18:09:07,480][test001_create_task][INFO] 调用终止任务接口还原测试环境
+[2021-09-16 18:09:07,480][control_task][INFO] stop任务-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall/task/control?control=stop&appid=20150314000000110000000000000010&taskid=18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:09:07,581][control_task][INFO] stop任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:09:07,786][test001_create_task][INFO] Clean: 清理测试环境数据库中客户数据
+[2021-09-16 18:09:07,991][test001_create_task][INFO] End: 结束测试
+[2021-09-16 18:09:07,991][tearDown][INFO] 测试用例:测试创建任务执行完成
+
+[2021-09-16 18:09:07,991][setUp][INFO] 开始执行测试用例:测试获取任务详情, 该用例对应方法名称:test002_get_task_detail
+[2021-09-16 18:09:07,991][test002_get_task_detail][INFO] Step1: 使用测试数据中信息创建任务
+[2021-09-16 18:09:07,991][create_task][INFO] 创建任务-请求信息如下: 
+url=http://192.168.180.129:9600/v1/aicall/task/commit, 
+header={'Content-Type': 'application/json;charset=UTF-8'}, 
+body={'appid': '20150314000000110000000000000010', 'bot_id': 572, 'task_id': 18290363607593092210, 'task_name': '接口测试_创建任务', 'task_desc': '', 'start_date': '2021-09-16 00:00:00', 'end_date': '2021-09-16 23:59:59', 'max_concurrent': 10, 'min_concurrent': 1, 'isrecord': 1, 'num_dir': '/app/nums/20150314000000110000000000000010', 'user_id': 1, 'call_policy': []}
+[2021-09-16 18:09:08,094][create_task][INFO] 创建任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:09:37,585][test002_get_task_detail][INFO] Step2: 获取上一步创建任务的详细信息
+[2021-09-16 18:09:37,585][get_task_detail][INFO] 获取任务详情-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall-web/crm-task/detail/18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:09:37,688][get_task_detail][INFO] 获取任务详情-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:09:37,688][test002_get_task_detail][INFO] Verify2: 验证获取任务详情是否返回正确响应
+[2021-09-16 18:09:37,688][verify_result][INFO] Result: 验证通过
+[2021-09-16 18:09:37,688][test002_get_task_detail][INFO] 调用终止任务接口还原测试环境
+[2021-09-16 18:09:37,689][control_task][INFO] stop任务-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall/task/control?control=stop&appid=20150314000000110000000000000010&taskid=18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:09:37,823][control_task][INFO] stop任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:09:37,995][test002_get_task_detail][INFO] Clean: 清理测试环境数据库中客户数据
+[2021-09-16 18:09:38,199][test002_get_task_detail][INFO] End: 结束测试
+[2021-09-16 18:09:38,199][tearDown][INFO] 测试用例:测试获取任务详情执行完成
+
+[2021-09-16 18:09:38,200][setUp][INFO] 开始执行测试用例:测试终止任务, 该用例对应方法名称:test003_stop_task
+[2021-09-16 18:09:38,200][test003_stop_task][INFO] Step1: 使用测试数据中信息创建任务
+[2021-09-16 18:09:38,200][create_task][INFO] 创建任务-请求信息如下: 
+url=http://192.168.180.129:9600/v1/aicall/task/commit, 
+header={'Content-Type': 'application/json;charset=UTF-8'}, 
+body={'appid': '20150314000000110000000000000010', 'bot_id': 572, 'task_id': 18290363607593092210, 'task_name': '接口测试_创建任务', 'task_desc': '', 'start_date': '2021-09-16 00:00:00', 'end_date': '2021-09-16 23:59:59', 'max_concurrent': 10, 'min_concurrent': 1, 'isrecord': 1, 'num_dir': '/app/nums/20150314000000110000000000000010', 'user_id': 1, 'call_policy': []}
+[2021-09-16 18:09:38,303][create_task][INFO] 创建任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:10:07,384][test003_stop_task][INFO] Step2: 终止任务
+[2021-09-16 18:10:07,384][control_task][INFO] stop任务-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall/task/control?control=stop&appid=20150314000000110000000000000010&taskid=18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:10:07,490][control_task][INFO] stop任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:10:07,691][test003_stop_task][INFO] Verify: 验证终止任务是否成功
+[2021-09-16 18:10:07,691][verify_result][INFO] Result: 验证通过
+[2021-09-16 18:10:07,691][test003_stop_task][INFO] Clean: 清理测试环境数据库中客户数据
+[2021-09-16 18:10:07,899][test003_stop_task][INFO] End: 结束测试
+[2021-09-16 18:10:07,900][tearDown][INFO] 测试用例:测试终止任务执行完成
+
+[2021-09-16 18:10:07,902][setUp][INFO] 开始执行测试用例:测试暂停/重启任务, 该用例对应方法名称:test004_pause_resume_task
+[2021-09-16 18:10:07,902][test004_pause_resume_task][INFO] Step1: 使用测试数据中信息创建任务
+[2021-09-16 18:10:07,902][create_task][INFO] 创建任务-请求信息如下: 
+url=http://192.168.180.129:9600/v1/aicall/task/commit, 
+header={'Content-Type': 'application/json;charset=UTF-8'}, 
+body={'appid': '20150314000000110000000000000010', 'bot_id': 572, 'task_id': 18290363607593092210, 'task_name': '接口测试_创建任务', 'task_desc': '', 'start_date': '2021-09-16 00:00:00', 'end_date': '2021-09-16 23:59:59', 'max_concurrent': 10, 'min_concurrent': 1, 'isrecord': 1, 'num_dir': '/app/nums/20150314000000110000000000000010', 'user_id': 1, 'call_policy': []}
+[2021-09-16 18:10:08,001][create_task][INFO] 创建任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:10:36,978][test004_pause_resume_task][INFO] Step3: 暂停任务
+[2021-09-16 18:10:36,978][control_task][INFO] pause任务-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall/task/control?control=pause&appid=20150314000000110000000000000010&taskid=18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:10:37,080][control_task][INFO] pause任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:10:37,285][test004_pause_resume_task][INFO] Verify1: 验证暂停任务是否返回正确响应
+[2021-09-16 18:10:37,285][verify_result][INFO] Result: 验证通过
+[2021-09-16 18:10:37,285][test004_pause_resume_task][INFO] Step4: 重启任务
+[2021-09-16 18:10:37,285][control_task][INFO] resume任务-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall/task/control?control=resume&appid=20150314000000110000000000000010&taskid=18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:10:37,388][control_task][INFO] resume任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:10:38,752][test004_pause_resume_task][INFO] Verify2: 验证重启任务是否成功
+[2021-09-16 18:10:38,752][verify_result][INFO] Result: 验证通过
+[2021-09-16 18:10:38,752][test004_pause_resume_task][INFO] 调用终止任务接口还原测试环境
+[2021-09-16 18:10:38,753][control_task][INFO] stop任务-请求信息: 
+url=http://192.168.180.129:9600/v1/aicall/task/control?control=stop&appid=20150314000000110000000000000010&taskid=18290363607593092210, 
+header={'Content-Type': 'application/json;charset=UTF-8'}
+[2021-09-16 18:10:38,923][control_task][INFO] stop任务-响应信息：{'statusCode': '000000'}
+[2021-09-16 18:10:39,128][test004_pause_resume_task][INFO] Clean: 清理测试环境数据库中客户数据
+[2021-09-16 18:10:39,231][test004_pause_resume_task][INFO] End: 结束测试
+[2021-09-16 18:10:39,231][tearDown][INFO] 测试用例:测试暂停/重启任务执行完成
+
+[2021-09-16 18:10:39,992][tearDownClass][INFO] ###############测试类:pds接口用例执行完成###############
+
